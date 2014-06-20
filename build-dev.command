@@ -1,130 +1,235 @@
 #!/bin/bash
 
-# Check for System Updates
-echo -e "\033[33m--- Running System Updates ---\033[0m"
-sudo softwareupdate --install -all
+# Workstation Builder v0.1
+# Tim Hordern (@mence)
+# This is a basic shell script to build an OSX development environment from scratch.
+# Linting is done with shellcheck: https://github.com/koalaman/shellcheck
 
-# Install Homebrew
-echo -e "\033[33m--- Installing Homebrew ---\033[0m"
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-brew doctor
+install # Let's do some installing!
 
-# Install Homebrew Apps
-echo -e "\033[33m--- Installing Homebrew Applications ---\033[0m"
-brew install git curl iftop htop-osx tree the_silver_searcher unrar whatmask
-brew install mtr --no-gtk
-brew install lolcat # Because lolcat
+function install(){
+  update_osx_system           # Check for System Updates
+  install_homebrew            # Install Homebrew
+  install_homebrew_apps       # Install Homebrew Apps
+  install_homebrew_cask       # Install Homebrew Cask
+  install_browsers            # Install Browsers
+  install_development_tools   # Install Development Tools
+  install_collaboration_tools # Install Collaboration Apps
+  install_productivity_tools  # Install Productivity Apps
+  install_utilities           # Install Utilities
+  install_quicklook_upgrades  # Install QuickLook Upgrades
+  install_multimedia_apps     # Install Multimedia Apps
+  install_other_apps          # Install Random Apps
+  #install_fonts              # Install Programming Fonts
+  #install_color_schemes      # Install Color Schemes
+  install_terminal_utilities  # Install Terminal Utilities
+  install_dotfiles            # Install and Configure Personal Dotfiles
+}
 
-# Install Homebrew Cask
-# TODO: Move to function call
-echo -e "\033[33m--- Setting up Homebrew Cask ---\033[0m"
-brew tap caskroom/cask
-brew install brew-cask
-brew doctor
+function update_osx_system(){
+  echo -e "\033[33m--- Running System Updates ---\033[0m"
+  sudo softwareupdate --install -all
+}
 
-# Install Browsers
-# TODO: Abstract to array of casks and descriptions to output to log
-echo -e "\033[33m--- Installing Browsers ---\033[0m"
-brew cask install google-chrome
-brew cask install firefox
-brew cask install chromium
+function install_homebrew(){
+  echo -e "\033[33m--- Installing Homebrew ---\033[0m"
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  brew doctor
+}
 
-# Install Development Tools
-echo -e "\033[33m--- Installing Development Tools ---\033[0m"
-brew cask install sublime-text
-brew cask install virtualbox
-brew cask install sequel-pro
-brew cask install charles
-brew cask install dbeaver
-brew cask install gitx-rowanj
-brew cask install github
-brew cask install cyberduck
-brew cask install intellij-idea # Might want to make these optional?
-brew cask install rubymine
-brew cask install processing
-brew cask install arduino
-brew cask install iterm2
-brew cask install atom
-brew cask install dash
-brew cask install heroku-toolbelt
-brew cask install sauce
+function install_homebrew_apps(){
+  # TODO: Separate into different app categories and move into other functions
+  echo -e "\033[33m--- Installing Homebrew Applications ---\033[0m"
+  brew install git curl iftop htop-osx tree the_silver_searcher unrar whatmask node
+  brew install mtr --no-gtk
+  brew install lolcat # Because lolcat
+}
 
-# Install Collaboration Apps
-echo -e "\033[33m--- Installing Collaboration Apps ---\033[0m"
-brew cask install slack
-brew cask install propane
-brew cask install adium
+function install_homebrew_cask(){
+  echo -e "\033[33m--- Setting up Homebrew Cask ---\033[0m"
+  brew tap caskroom/cask
+  brew install brew-cask
+  brew doctor
+}
 
-# Install Productivity Apps
-echo -e "\033[33m--- Installing Productivity Apps ---\033[0m"
-brew cask install evernote # How to deal with App Store apps?
-brew cask install skitch
-brew cask install dropbox
-brew cask install calibre
-brew cask install sequential
-brew cask install fantastical
-brew cask install hazel
+function install_browsers(){
+  browser_casks=(
+    google-chrome
+    firefox
+    chromium
+    )
 
-# Install Utilities
-echo -e "\033[33m--- Installing Utilities ---\033[0m"
-brew cask install flux
-brew cask install bettertouchtool
-brew cask install alfred
-brew cask install bodega
-brew cask install cheatsheet
-brew cask install carbon-copy-cloner
-# Growl
-# HardwareGrowler
-brew cask install appcleaner
-brew cask install onepassword
-brew cask install smcfancontrol
-brew cask install bartender
-brew cask install caffeine
-brew cask install coconutbattery
-brew cask install crashplan
-brew cask install smoothmouse
+  echo -e "\033[33m--- Installing Browsers ---\033[0m"
+  cask_install $browser_casks
+  # TODO: Determine how to install Chrome extensions from command line
+}
 
-# Install Multimedia Apps
-echo -e "\033[33m--- Installing Multimedia Apps ---\033[0m"
-brew cask install vlc
-brew cask install spotifree
-brew cask install rdio
-brew cask install lastfm
-brew cask install chromecast
+function install_development_tools(){
+  development_casks=(
+    sublime-text
+    virtualbox
+    sequel-pro
+    charles
+    dbeaver
+    gitx-rowanj
+    github
+    cyberduck
+    intellij-idea
+    rubymine
+    processing
+    arduino
+    iterm2
+    atom
+    dash
+    heroku-toolbelt
+    sauce
+    )
+  # TODO: Allow for optional choices (eg. IntelliJ which eats the world)
 
-# Install Random Apps
-echo -e "\033[33m--- Installing Random Apps ---\033[0m"
-brew cask install dogecoin
-brew cask install reeddit
+  echo -e "\033[33m--- Installing Development Tools ---\033[0m"
+  cask_install $development_casks
+}
 
-# Install Programming Fonts
-echo -e "\033[33m--- Installing Programming Fonts ---\033[0m"
-# Install Inconsolata Font
-# curl http://levien.com/type/myfonts/Inconsolata.otf
-# cp Inconsolata.otf /Library/Fonts/
+function install_collaboration_tools(){
+  collaboration_casks=(
+    slack
+    propane
+    adium
+    )
 
-# Install Color Schemes
-echo -e "\033[33m--- Installing Color Schemes ---\033[0m"
-# Install Solarized Color Scheme
-# https://github.com/altercation/solarized
+  echo -e "\033[33m--- Installing Collaboration Tools ---\033[0m"
+  cask_install $collaboration_casks
+}
 
-# Install Terminal Utilities
-echo -e "\033[33m--- Installing Terminal Utilities ---\033[0m"
+function install_productivity_tools(){
+  productivity_casks=(
+    evernote
+    skitch
+    dropbox
+    calibre
+    sequential
+    fantastical
+    hazel
+    )
+  # TODO: Determine how to deal with App Store apps?
+
+  echo -e "\033[33m--- Installing Productivity Apps ---\033[0m"
+  cask_install $productivity_casks
+}
+
+function install_utilities(){
+  utility_casks=(
+    flux
+    bettertouchtool
+    alfred
+    bodega
+    cheatsheet
+    carbon-copy-cloner
+    appcleaner
+    onepassword
+    smcfancontrol
+    bartender
+    caffeine
+    coconutbattery
+    crashplan
+    smoothmouse
+    )
+    # Growl
+    # HardwareGrowler
+
+  echo -e "\033[33m--- Installing Utilities ---\033[0m"
+  cask_install $utility_casks
+}
+
+function install_quicklook_upgrades(){
+  quicklook_upgrade_casks=(
+    qlcolorcode 
+    qlstephen
+    qlmarkdown
+    quicklook-json
+    qlprettypatch
+    quicklook-csv
+    betterzipql
+    webp-quicklook
+    suspicious-package
+    cert-quicklook
+    )
+
+  echo -e "\033[33m--- Installing QuickLook Upgrades ---\033[0m"
+  cask_install $quicklook_upgrade_casks
+  defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder # Allow copying text from QL
+}
+
+function install_multimedia_apps(){
+  multimedia_casks=(
+    vlc
+    spotifree
+    rdio
+    lastfm
+    chromecast
+    )
+
+  echo -e "\033[33m--- Installing Multimedia Apps ---\033[0m"
+  cask_install $multimedia_casks
+}
+
+function install_other_apps(){
+  random_casks=(
+    dogecoin
+    reeddit
+    )
+
+  echo -e "\033[33m--- Installing Random Apps ---\033[0m"
+  cask_install $random_casks
+}
+
+function install_dotfiles(){
+  echo -e "\033[33m--- Installing Personal Dotfiles ---\033[0m"
+  git clone git@github.com:mence/dotfiles.git ~/.dotfiles
+  cp /.dotfiles/.bash_profile.template ~/.bash_profile
+  ln -s /.dotfiles/.gitaliasconfig ~/.gitaliasconfig
+  ln -s /.dotfiles/.gitconfig ~/.gitconfig
+  ln -s /.dotfiles/.githubconfig ~/.githubconfig
+  ln -s /.dotfiles/.iftoprc ~/.iftoprc
+}
+
+function install_terminal_utilities(){
+  echo -e "\033[33m--- Installing Terminal Utilities ---\033[0m"
+  install_rainbow
+}
+
+function install_rainbow(){
 # Install Rainbow
 # https://github.com/nicoulaj/rainbow
 # v2.5: https://github.com/nicoulaj/rainbow/archive/2.5.0.zip
-# TODO: Abstract to temp download & install function 
-mkdir tmp
-curl https://github.com/nicoulaj/rainbow/archive/2.5.0.zip tmp/rainbow.zip
-unzip tmp/rainbow.zip
-cd tmp/rainbow
-sudo python setup.py install
+  mkdir tmp
+  curl https://github.com/nicoulaj/rainbow/archive/2.5.0.zip tmp/rainbow.zip
+  unzip tmp/rainbow.zip
+  cd tmp/rainbow
+  echo "You will be prompted for your Administrator password."
+  "sudo python setup.py install"
+  cd ../..
+  rm -rf tmp
+}
 
-# Install and Configure Personal Dotfiles
-echo -e "\033[33m--- Installing Personal Dotfiles ---\033[0m"
-git clone git@github.com:mence/dotfiles.git ~/.dotfiles
-cp /.dotfiles/.bash_profile.template ~/.bash_profile
-ln -s /.dotfiles/.gitaliasconfig .gitaliasconfig
-ln -s /.dotfiles/.gitconfig .gitconfig
-ln -s /.dotfiles/.githubconfig .githubconfig
-ln -s /.dotfiles/.iftoprc .iftoprc
+function install_fonts(){
+  echo -e "\033[33m--- Installing Programming Fonts ---\033[0m"
+  # Install Inconsolata Font
+  curl http://levien.com/type/myfonts/Inconsolata.otf
+  cp Inconsolata.otf /Library/Fonts/
+}
+
+function install_color_schemes(){
+  echo -e "\033[33m--- Installing Color Schemes ---\033[0m"
+  # Install Solarized Color Scheme
+  # https://github.com/altercation/solarized
+}
+
+function cask_install(){
+  for casks in $casks; do
+    echo "Installing Cask: $cask"
+    "brew cask install $cask"
+  done
+}
+
+
