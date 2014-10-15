@@ -42,7 +42,6 @@ function install_homebrew_apps(){
   echo -e "\033[33m--- Installing Homebrew Applications ---\033[0m"
   brew install git curl iftop htop-osx tree the_silver_searcher unrar whatmask node
   brew install mtr --no-gtk
-  brew install lolcat # Because lolcat
 }
 
 function install_homebrew_cask(){
