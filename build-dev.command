@@ -122,7 +122,6 @@ function install_utilities(){
     flux
     bettertouchtool
     alfred
-    bodega
     cheatsheet
     carbon-copy-cloner
     appcleaner
