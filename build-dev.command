@@ -212,12 +212,16 @@ function install_rainbow(){
 }
 
 function install_fonts(){
+  font_casks=(
+    font-inconsolata  # Inconsolata
+    font-fontawesome  # Font Awesome
+    font-roboto       # Roboto
+    font-roboto-slab  # Roboto Slab
+  )
+
   echo -e "\033[33m--- Installing Programming Fonts ---\033[0m"
-  brew tap caskroom/Fonts
-  brew cask install font-inconsolata  # Inconsolata
-  brew cask install font-fontawesome  # Font Awesome
-  brew cask install font-roboto       # Roboto
-  brew cask install font-roboto-slab  # Roboto Slab
+  brew tap caskroom/Fonts   # Add the font cask to Homebrew
+  cask_install $font_casks
 }
 
 function install_color_schemes(){
