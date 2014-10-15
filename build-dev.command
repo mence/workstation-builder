@@ -213,9 +213,11 @@ function install_rainbow(){
 
 function install_fonts(){
   echo -e "\033[33m--- Installing Programming Fonts ---\033[0m"
-  # Install Inconsolata Font
-  curl http://levien.com/type/myfonts/Inconsolata.otf
-  cp Inconsolata.otf /Library/Fonts/
+  brew tap caskroom/Fonts
+  brew cask install font-inconsolata  # Inconsolata
+  brew cask install font-fontawesome  # Font Awesome
+  brew cask install font-roboto       # Roboto
+  brew cask install font-roboto-slab  # Roboto Slab
 }
 
 function install_color_schemes(){
