@@ -24,6 +24,7 @@ function install(){
   #install_color_schemes      # Install Color Schemes
   install_terminal_utilities  # Install Terminal Utilities
   install_dotfiles            # Install and Configure Personal Dotfiles
+  install_python_apps         # Install Applications via Python
 }
 
 function update_osx_system(){
@@ -221,6 +222,10 @@ function install_color_schemes(){
   echo -e "\033[33m--- Installing Color Schemes ---\033[0m"
   # Install Solarized Color Scheme
   # https://github.com/altercation/solarized
+}
+
+function install_python_apps(){
+  pip install lolcat # Because lolcat
 }
 
 function cask_install(){
