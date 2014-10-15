@@ -39,10 +39,21 @@ function install_homebrew(){
 }
 
 function install_homebrew_apps(){
-  # TODO: Separate into different app categories and move into other functions
+  homebrew_apps=(
+    git
+    curl
+    iftop
+    htop-osx
+    tree
+    the_silver_searcher
+    unrar
+    whatmask
+    node
+    )
+
   echo -e "\033[33m--- Installing Homebrew Applications ---\033[0m"
-  brew install git curl iftop htop-osx tree the_silver_searcher unrar whatmask node
-  brew install mtr --no-gtk
+  homebrew_install $homebrew_apps
+  brew install mtr --no-gtk  # mtr needs command-line flags
 }
 
 function install_homebrew_cask(){
@@ -235,11 +246,15 @@ function install_python_apps(){
   pip install lolcat # Because lolcat
 }
 
+function homebrew_install(){
+  for kegs in $kegs; do
+    echo "Installing Homebrew: $keg"
+    "brew install $keg"
+}
+
 function cask_install(){
   for casks in $casks; do
     echo "Installing Cask: $cask"
     "brew cask install $cask"
   done
 }
-
-
