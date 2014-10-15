@@ -20,7 +20,7 @@ function install(){
   install_quicklook_upgrades  # Install QuickLook Upgrades
   install_multimedia_apps     # Install Multimedia Apps
   install_other_apps          # Install Random Apps
-  #install_fonts              # Install Programming Fonts
+  install_fonts               # Install Programming Fonts
   #install_color_schemes      # Install Color Schemes
   install_terminal_utilities  # Install Terminal Utilities
   install_dotfiles            # Install and Configure Personal Dotfiles
