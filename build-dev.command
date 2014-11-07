@@ -206,6 +206,8 @@ function install_dotfiles(){
 function install_terminal_utilities(){
   echo -e "\033[33m--- Installing Terminal Utilities ---\033[0m"
   install_rainbow
+  brew tap tldr-pages/tldr    # install tl;dr manpages
+  brew install tldr
 }
 
 function install_rainbow(){
