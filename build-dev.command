@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Workstation Builder v0.2
+# Workstation Builder v0.3
 # Tim Hordern (@mence)
 # This is a basic shell script to build an OSX development environment from scratch.
 # Linting is done with shellcheck: https://github.com/koalaman/shellcheck
@@ -94,6 +94,7 @@ function install_development_tools(){
     dash
     heroku-toolbelt
     sauce
+    icdiff
     )
   # TODO: Allow for optional choices (eg. IntelliJ which eats the world)
 
