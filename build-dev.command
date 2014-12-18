@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Workstation Builder v0.3
+# Workstation Builder v0.4
 # Tim Hordern (@mence)
 # This is a basic shell script to build an OSX development environment from scratch.
 # Linting is done with shellcheck: https://github.com/koalaman/shellcheck
@@ -25,6 +25,7 @@ function install(){
   install_terminal_utilities  # Install Terminal Utilities
   install_dotfiles            # Install and Configure Personal Dotfiles
   install_python_apps         # Install Applications via Python
+  install_alfred_workflows    # Install some Alfred workflows
 }
 
 function update_osx_system(){
@@ -247,6 +248,57 @@ function install_color_schemes(){
 function install_python_apps(){
   echo -e "\033[33m--- Installing Python Applications ---\033[0m"
   pip install lolcat # Because lolcat
+}
+
+function install_alfred_workflows(){
+  echo -e "\033[33m--- Installing Alfred Workflows ---\033[0m"
+  mkdir tmp
+
+  curl https://github.com/chadhs/idonethis-for-alfred/raw/master/iDoneThis%20For%20Alfred.alfredworkflow tmp/iDoneThisForAlfred.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/muppet.gate.net.DateCalculator/datecalculator.alfredworkflow tmp/datecalculator.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/florian.down/down_for_everyone.alfredworkflow tmp/down_for_everyone.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.sztoltz.evernote/evernote.alfredworkflow tmp/evernote.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.alfredapp.moul.gauth/google_authenticator.alfredworkflow tmp/google_authenticator.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.spr.f.lux/f.lux_.alfredworkflow tmp/flux.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.jonathanrwallace.google_hangout/google_hangout.alfredworkflow tmp/google_hangout.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/ch.milan.hiddenfiles/hidden_files.alfredworkflow tmp/hidden_files.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/nc.workflow.imessage/imessage.alfredworkflow tmp/imessage.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.targumanu.imdbsearch/imdb_search.alfredworkflow tmp/imdb_search.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.tedwise.networkinfo/network_info.alfredworkflow tmp/network_info.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/net.deanishe.alfred-network-location/network_location.alfredworkflow tmp/network_location.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.iansoper.openiniterm/open_in_iterm2.alfredworkflow tmp/open_in_iterm2.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.packal/packal.alfredworkflow tmp/packal.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/ch.milan.togglewifi/toggle_wifi.alfredworkflow tmp/toggle_wifi.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.spr.translate/translate.alfredworkflow tmp/translate.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/florian.urban/urban_dictionary.alfredworkflow tmp/urban_dictionary.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/com.fniephaus.vmcontrol/vm-control-for-alfred.alfredworkflow tmp/vm-control-for-alfred.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/net.coderanger.lulz/lulz.alfredworkflow tmp/lulz.alfredworkflow
+  curl https://github.com/packal/repository/raw/master/andrielfn.memeflow/memeflow.alfredworkflow tmp/memeflow.alfredworkflow
+
+  # Install workflows. There's definitely better ways to do this.
+  open tmp/iDoneThisForAlfred.alfredworkflow
+  open tmp/datecalculator.alfredworkflow
+  open tmp/down_for_everyone.alfredworkflow
+  open tmp/evernote.alfredworkflow
+  open tmp/google_authenticator.alfredworkflow
+  open tmp/flux.alfredworkflow
+  open tmp/google_hangout.alfredworkflow
+  open tmp/hidden_files.alfredworkflow
+  open tmp/imessage.alfredworkflow
+  open tmp/imdb_search.alfredworkflow
+  open tmp/network_info.alfredworkflow
+  open tmp/network_location.alfredworkflow
+  open tmp/open_in_iterm2.alfredworkflow
+  open tmp/packal.alfredworkflow
+  open tmp/toggle_wifi.alfredworkflow
+  open tmp/translate.alfredworkflow
+  open tmp/urban_dictionary.alfredworkflow
+  open tmp/vm-control-for-alfred.alfredworkflow
+  open tmp/lulz.alfredworkflow
+  open tmp/memeflow.alfredworkflow
+
+  rm -rf tmp
+
 }
 
 function homebrew_install(){
