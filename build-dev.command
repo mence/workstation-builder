@@ -190,9 +190,10 @@ function install_quicklook_upgrades(){
     qlprettypatch
     quicklook-csv
     betterzipql
-    webp-quicklook
+    webpquicklook
     suspicious-package
     cert-quicklook
+    epubquicklook
     )
 
   echo -e "${h1}Installing QuickLook Upgrades${NC}"
