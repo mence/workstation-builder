@@ -99,6 +99,7 @@ function install_development_tools()
 {
   development_casks=
   (
+    0xdbe-eap
     arduino
     atom
     ccmenu
@@ -143,6 +144,7 @@ function install_development_tools()
     entr
     icdiff
     mysql
+    netcat
     node
     phantomjs
     postgres
@@ -151,6 +153,7 @@ function install_development_tools()
     tmux
     vim
     watch
+    wireshark
   )
   homebrew_install ${development_kegs[@]}
 
