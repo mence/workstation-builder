@@ -129,6 +129,8 @@ function install_productivity_tools(){
     sequential
     fantastical
     hazel
+    keyboard-maestro
+    marked
     )
   # TODO: Determine how to deal with App Store apps?
 
