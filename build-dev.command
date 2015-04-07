@@ -93,6 +93,9 @@ function install_development_tools(){
     heroku-toolbelt
     sauce
     icdiff
+    entr
+    pstree
+    watch
     )
   # TODO: Allow for optional choices (eg. IntelliJ which eats the world)
 
