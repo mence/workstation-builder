@@ -85,8 +85,6 @@ function install_development_tools(){
     gitx-rowanj
     github
     cyberduck
-    intellij-idea
-    rubymine
     processing
     arduino
     iterm2
@@ -100,6 +98,11 @@ function install_development_tools(){
 
   echo -e "\033[33m--- Installing Development Tools ---\033[0m"
   cask_install $development_casks
+
+  # RubyMine and IntelliJ depend on Java 6
+  brew cask install caskroom/homebrew-versions/java6
+  brew cask install rubymine
+  brew cask install intellij-idea
 }
 
 function install_collaboration_tools(){
