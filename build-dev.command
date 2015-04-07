@@ -26,8 +26,8 @@ function install()
 {
   update_osx_system           # Check for System Updates
   install_homebrew            # Install Homebrew
-  install_homebrew_apps       # Install Homebrew Apps
   install_homebrew_cask       # Install Homebrew Cask
+  install_command-line_apps   # Install Command Line Apps
   install_browsers            # Install Browsers
   install_development_tools   # Install Development Tools
   install_collaboration_tools # Install Collaboration Apps
@@ -55,7 +55,7 @@ function install_homebrew()
   brew doctor
 }
 
-function install_homebrew_apps()
+function install_command-line_apps()
 {
   homebrew_apps=
   (
@@ -67,13 +67,13 @@ function install_homebrew_apps()
     the_silver_searcher
     unrar
     whatmask
-    node
-    shellcheck
-    cowsay
   )
-  echo -e "${h1}Installing Homebrew Applications${NC}"
+  echo -e "${h1}Installing Command-Line Applications${NC}"
   homebrew_install ${homebrew_apps[@]}
+
+  # mtr
   brew install mtr --no-gtk  # mtr needs command-line flags
+
 }
 
 function install_homebrew_cask()
@@ -138,8 +138,19 @@ function install_development_tools()
     entr
     pstree
     watch
+    node
+    postgres
+    phantomjs
+    casperjs
   )
   homebrew_install ${development_kegs[@]}
+
+  node_packages=
+  (
+    coffee-script
+    yo
+  )
+  node_install ${node_packages[@]}
 }
 
 function install_collaboration_tools()
@@ -307,8 +318,15 @@ function homebrew_install()
 function cask_install()
 {
   array=($@)
-  echo -e "${h2} Installing Homebrew Caskroom applications: $@${NC}"
+  echo -e "${h2}Installing Homebrew Caskroom applications: $@${NC}"
   brew cask install ${array[@]}
+}
+
+function node_install()
+{
+  array=($@)
+  echo -e "${h2}Installing Node applications (globally): $@${NC}"
+  npm install -g ${array[@]}
 }
 
 install # Let's do some installing!
