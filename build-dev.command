@@ -49,6 +49,7 @@ function install_homebrew_apps(){
     unrar
     whatmask
     node
+    shellcheck
     )
 
   echo -e "\033[33m--- Installing Homebrew Applications ---\033[0m"
