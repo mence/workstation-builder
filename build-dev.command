@@ -73,7 +73,6 @@ function install_command-line_apps()
 
   # mtr
   brew install mtr --no-gtk  # mtr needs command-line flags
-
 }
 
 function install_homebrew_cask()
@@ -270,7 +269,7 @@ function install_terminal_utilities()
   echo -e "${h1}Installing Terminal Utilities${NC}"
   install_rainbow
   brew tap tldr-pages/tldr    # install tl;dr manpages
-  brew install tldr
+  homebrew_install tldr
 }
 
 # https://github.com/nicoulaj/rainbow
@@ -304,8 +303,8 @@ function install_fonts()
 function install_python_apps()
 {
   echo -e "${h1}Installing Python Applications${NC}"
-  brew install python
-  pip install lolcat # Because lolcat
+  homebrew_install python
+  python_install lolcat # Because lolcat
 }
 
 function homebrew_install()
@@ -327,6 +326,13 @@ function node_install()
   array=($@)
   echo -e "${h2}Installing Node applications (globally): $@${NC}"
   npm install -g ${array[@]}
+}
+
+function python_install()
+{
+  array=($@)
+  echo -e "${h2}Installing Node applications (globally): $@${NC}"
+  pip install ${array[@]}
 }
 
 install # Let's do some installing!
