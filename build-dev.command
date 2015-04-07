@@ -167,7 +167,7 @@ function install_utilities(){
     cheatsheet
     carbon-copy-cloner
     appcleaner
-    onepassword
+    1password
     smcfancontrol
     bartender
     caffeine
