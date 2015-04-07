@@ -268,6 +268,7 @@ function install_color_schemes(){
 
 function install_python_apps(){
   echo -e "\033[33m--- Installing Python Applications ---\033[0m"
+  brew install python
   pip install lolcat # Because lolcat
 }
 
