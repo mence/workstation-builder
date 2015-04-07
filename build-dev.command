@@ -82,7 +82,7 @@ function install_development_tools(){
     sequel-pro
     charles
     dbeaver-community
-    gitx-rowanj
+    rowanj-gitx
     github
     cyberduck
     processing
