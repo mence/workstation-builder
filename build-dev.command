@@ -235,7 +235,7 @@ function install_rainbow(){
 # v2.5: https://github.com/nicoulaj/rainbow/archive/2.5.0.zip
   mkdir tmp
   curl -L https://github.com/nicoulaj/rainbow/archive/2.5.0.zip -o tmp/rainbow.zip
-  cd tmp/rainbow
+  cd tmp
   unzip rainbow.zip
   cd rainbow-2.5.0
   echo "You will be prompted for your Administrator password."
