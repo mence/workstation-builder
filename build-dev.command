@@ -135,21 +135,10 @@ function install_development_tools()
   )
   cask_install ${jetbrains_casks[@]}
 
-  # A whole range of PostgreSQL GUI tools, take your pick
-  postgres_casks=
-  (
-    psequel
-    postico
-    pgadmin3
-    valentina-studio
-  )
-  cask_install ${postgres_casks[@]}
-
   development_kegs=
   (
     casperjs
     ctags-exuberant
-    docker
     emacs
     entr
     go
@@ -168,6 +157,13 @@ function install_development_tools()
   )
   homebrew_install ${development_kegs[@]}
 
+  docker_kegs=
+  (
+    docker
+    boot2docker
+  )
+  homebrew_install ${docker_kegs[@]}
+
   node_packages=
   (
     coffee-script
@@ -178,6 +174,16 @@ function install_development_tools()
     zuul
   )
   node_install ${node_packages[@]}
+
+  # A whole range of PostgreSQL GUI tools, take your pick
+  postgres_casks=
+  (
+    psequel
+    postico
+    pgadmin3
+    valentina-studio
+  )
+  cask_install ${postgres_casks[@]}
 }
 
 function install_collaboration_tools()
