@@ -50,6 +50,7 @@ function install_homebrew_apps(){
     whatmask
     node
     shellcheck
+    cowsay
     )
 
   echo -e "\033[33m--- Installing Homebrew Applications ---\033[0m"
