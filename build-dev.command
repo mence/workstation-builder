@@ -197,11 +197,11 @@ function install_other_apps(){
 function install_dotfiles(){
   echo -e "\033[33m--- Installing Personal Dotfiles ---\033[0m"
   git clone https://github.com/mence/dotfiles.git ~/.dotfiles
-  cp /.dotfiles/.bash_profile.template ~/.bash_profile
-  ln -s /.dotfiles/.gitaliasconfig ~/.gitaliasconfig
-  ln -s /.dotfiles/.gitconfig ~/.gitconfig
-  ln -s /.dotfiles/.githubconfig ~/.githubconfig
-  ln -s /.dotfiles/.iftoprc ~/.iftoprc
+  cp ~/.dotfiles/.bash_profile.template ~/.bash_profile
+  ln -s ~/.dotfiles/.gitaliasconfig ~/.gitaliasconfig
+  ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+  ln -s ~/.dotfiles/.githubconfig ~/.githubconfig
+  ln -s ~/.dotfiles/.iftoprc ~/.iftoprc
 }
 
 function install_terminal_utilities(){
