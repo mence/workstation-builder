@@ -152,6 +152,7 @@ function install_development_tools()
     docker
     emacs
     entr
+    go
     icdiff
     mysql
     netcat
