@@ -5,6 +5,23 @@
 # This is a basic shell script to build an OSX development environment from scratch.
 # Linting is done with shellcheck: https://github.com/koalaman/shellcheck
 
+# Colored Prompts
+# Other useful colors:
+# yellow_dim='\033[33m'
+# yellow_bright='\033[1;33m'
+# green='\033[0;32m'
+
+yellow='\033[33m'
+cyan='\033[0;36m'
+red='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Easier references to warnings in colored echo -e prompts
+
+h1="${cyan}==> "
+h2="${yellow}INFO: "
+warn="${red}WARNING: "
+
 function install(){
   update_osx_system           # Check for System Updates
   install_homebrew            # Install Homebrew
@@ -26,12 +43,12 @@ function install(){
 }
 
 function update_osx_system(){
-  echo -e "\033[33m--- Running System Updates ---\033[0m"
+  echo -e "${h1}Running System Updates${NC}"
   sudo softwareupdate --install -all
 }
 
 function install_homebrew(){
-  echo -e "\033[33m--- Installing Homebrew ---\033[0m"
+  echo -e "${h1}Installing Homebrew${NC}"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew doctor
 }
@@ -51,13 +68,13 @@ function install_homebrew_apps(){
     cowsay
     )
 
-  echo -e "\033[33m--- Installing Homebrew Applications ---\033[0m"
+  echo -e "${h1}Installing Homebrew Applications${NC}"
   homebrew_install ${homebrew_apps[@]}
   sudo brew install mtr --no-gtk  # mtr needs command-line flags
 }
 
 function install_homebrew_cask(){
-  echo -e "\033[33m--- Setting up Homebrew Cask ---\033[0m"
+  echo -e "${h1}Setting up Homebrew Cask${NC}"
   brew tap caskroom/cask
   brew install brew-cask
   brew doctor
@@ -70,7 +87,7 @@ function install_browsers(){
     chromium
     )
 
-  echo -e "\033[33m--- Installing Browsers ---\033[0m"
+  echo -e "${h1}Installing Browsers${NC}"
   cask_install ${browser_casks[@]}
   # TODO: Determine how to install Chrome extensions from command line
 }
@@ -102,7 +119,7 @@ function install_development_tools(){
     )
   # TODO: Allow for optional choices (eg. IntelliJ which eats the world)
 
-  echo -e "\033[33m--- Installing Development Tools ---\033[0m"
+  echo -e "${h1}Installing Development Tools${NC}"
   cask_install $development_casks
 
   # RubyMine and IntelliJ depend on Java 6
@@ -123,7 +140,7 @@ function install_collaboration_tools(){
     adium
     )
 
-  echo -e "\033[33m--- Installing Collaboration Tools ---\033[0m"
+  echo -e "${h1}Installing Collaboration Tools${NC}"
   cask_install ${collaboration_casks[@]}
 }
 
@@ -142,7 +159,7 @@ function install_productivity_tools(){
     )
   # TODO: Determine how to deal with App Store apps?
 
-  echo -e "\033[33m--- Installing Productivity Apps ---\033[0m"
+  echo -e "${h1}Installing Productivity Apps${NC}"
   cask_install ${productivity_casks[@]}
 }
 
@@ -166,7 +183,7 @@ function install_utilities(){
     # Growl
     # HardwareGrowler
 
-  echo -e "\033[33m--- Installing Utilities ---\033[0m"
+  echo -e "${h1}Installing Utilities${NC}"
   cask_install ${utility_casks[@]}
 }
 
@@ -184,7 +201,7 @@ function install_quicklook_upgrades(){
     cert-quicklook
     )
 
-  echo -e "\033[33m--- Installing QuickLook Upgrades ---\033[0m"
+  echo -e "${h1}Installing QuickLook Upgrades${NC}"
   cask_install ${quicklook_upgrade_casks[@]}
   defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder # Allow copying text from QL
 }
@@ -198,7 +215,7 @@ function install_multimedia_apps(){
     chromecast
     )
 
-  echo -e "\033[33m--- Installing Multimedia Apps ---\033[0m"
+  echo -e "${h1}Installing Multimedia Apps${NC}"
   cask_install ${multimedia_casks[@]}
 }
 
@@ -208,12 +225,12 @@ function install_other_apps(){
     reeddit
     )
 
-  echo -e "\033[33m--- Installing Random Apps ---\033[0m"
+  echo -e "${h1}Installing Random Apps${NC}"
   cask_install ${random_casks[@]}
 }
 
 function install_dotfiles(){
-  echo -e "\033[33m--- Installing Personal Dotfiles ---\033[0m"
+  echo -e "${h1}Installing Personal Dotfiles${NC}"
   git clone https://github.com/mence/dotfiles.git ~/.dotfiles
   cp ~/.dotfiles/.bash_profile.template ~/.bash_profile
   ln -s ~/.dotfiles/.gitaliasconfig ~/.gitaliasconfig
@@ -223,7 +240,7 @@ function install_dotfiles(){
 }
 
 function install_terminal_utilities(){
-  echo -e "\033[33m--- Installing Terminal Utilities ---\033[0m"
+  echo -e "${h1}Installing Terminal Utilities${NC}"
   install_rainbow
   brew tap tldr-pages/tldr    # install tl;dr manpages
   brew install tldr
@@ -238,7 +255,7 @@ function install_rainbow(){
   cd tmp
   unzip rainbow.zip
   cd rainbow-2.5.0
-  echo "You will be prompted for your Administrator password."
+  echo -e "${warn}You will be prompted for your Administrator password.${NC}"
   sudo python setup.py install
   cd ../../..
   rm -rf tmp
@@ -252,32 +269,32 @@ function install_fonts(){
     font-roboto-slab  # Roboto Slab
   )
 
-  echo -e "\033[33m--- Installing Programming Fonts ---\033[0m"
+  echo -e "${h1}Installing Programming Fonts${NC}"
   brew tap caskroom/Fonts   # Add the font cask to Homebrew
   cask_install ${font_casks[@]}
 }
 
 function install_color_schemes(){
-  echo -e "\033[33m--- Installing Color Schemes ---\033[0m"
+  echo -e "${h1}Installing Color Schemes${NC}"
   # Install Solarized Color Scheme
   # https://github.com/altercation/solarized
 }
 
 function install_python_apps(){
-  echo -e "\033[33m--- Installing Python Applications ---\033[0m"
+  echo -e "${h1}Installing Python Applications${NC}"
   brew install python
   pip install lolcat # Because lolcat
 }
 
 function homebrew_install(){
   array=($@)
-  echo "INFO: Installing Homebrew applications: $@"
+  echo -e "${h2}Installing Homebrew applications: $@${NC}"
   brew install ${array[@]}
 }
 
 function cask_install(){
   array=($@)
-  echo "INFO: Installing Homebrew Caskroom applications: $@"
+  echo -e "${h2} Installing Homebrew Caskroom applications: $@${NC}"
   brew cask install ${array[@]}
 }
 
