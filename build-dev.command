@@ -101,6 +101,7 @@ function install_development_tools()
   (
     arduino
     atom
+    ccmenu
     charles
     cyberduck
     dash
@@ -117,6 +118,8 @@ function install_development_tools()
     sublime-text
     caskroom/homebrew-versions/sublime-text3
     virtualbox
+    xscope
+    xquartz
   )
   echo -e "${h1}Installing Development Tools${NC}"
   cask_install $development_casks
@@ -134,12 +137,19 @@ function install_development_tools()
   development_kegs=
   (
     casperjs
+    ctags-exuberant
+    docker
+    emacs
     entr
     icdiff
+    mysql
     node
     phantomjs
     postgres
     pstree
+    shellcheck
+    tmux
+    vim
     watch
   )
   homebrew_install ${development_kegs[@]}
@@ -252,6 +262,15 @@ function install_other_apps()
   )
   echo -e "${h1}Installing Random Apps${NC}"
   cask_install ${random_casks[@]}
+
+  random_kegs=
+  (
+    cowsay
+  )
+  homebrew_install ${development_kegs[@]}
+
+  # Fortune
+  brew install fortune --without-offensive
 }
 
 function install_dotfiles()
