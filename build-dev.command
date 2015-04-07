@@ -135,6 +135,16 @@ function install_development_tools()
   )
   cask_install ${jetbrains_casks[@]}
 
+  # A whole range of PostgreSQL GUI tools, take your pick
+  postgres_casks=
+  (
+    psequel
+    postico
+    pgadmin3
+    valentina-studio
+  )
+  cask_install ${postgres_casks[@]}
+
   development_kegs=
   (
     casperjs
