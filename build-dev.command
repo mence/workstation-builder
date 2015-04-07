@@ -69,7 +69,7 @@ function install_homebrew_apps(){
 
   echo -e "${h1}Installing Homebrew Applications${NC}"
   homebrew_install ${homebrew_apps[@]}
-  sudo brew install mtr --no-gtk  # mtr needs command-line flags
+  brew install mtr --no-gtk  # mtr needs command-line flags
 }
 
 function install_homebrew_cask(){
