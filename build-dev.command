@@ -154,7 +154,7 @@ function install_utilities(){
 
 function install_quicklook_upgrades(){
   quicklook_upgrade_casks=(
-    qlcolorcode 
+    qlcolorcode
     qlstephen
     qlmarkdown
     quicklook-json
@@ -253,6 +253,7 @@ function homebrew_install(){
   for kegs in $kegs; do
     echo "Installing Homebrew: $keg"
     "brew install $keg"
+  done
 }
 
 function cask_install(){
