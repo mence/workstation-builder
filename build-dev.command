@@ -196,7 +196,7 @@ function install_other_apps(){
 
 function install_dotfiles(){
   echo -e "\033[33m--- Installing Personal Dotfiles ---\033[0m"
-  git clone git@github.com:mence/dotfiles.git ~/.dotfiles
+  git clone https://github.com/mence/dotfiles.git ~/.dotfiles
   cp /.dotfiles/.bash_profile.template ~/.bash_profile
   ln -s /.dotfiles/.gitaliasconfig ~/.gitaliasconfig
   ln -s /.dotfiles/.gitconfig ~/.gitconfig
