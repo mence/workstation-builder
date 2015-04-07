@@ -88,7 +88,6 @@ function install_browsers(){
 
   echo -e "${h1}Installing Browsers${NC}"
   cask_install ${browser_casks[@]}
-  # TODO: Determine how to install Chrome extensions from command line
 }
 
 function install_development_tools(){
@@ -116,7 +115,6 @@ function install_development_tools(){
     caskroom/homebrew-versions/sublime-text3
     caskroom/homebrew-versions/google-chrome-canary
     )
-  # TODO: Allow for optional choices (eg. IntelliJ which eats the world)
 
   echo -e "${h1}Installing Development Tools${NC}"
   cask_install $development_casks
@@ -156,7 +154,6 @@ function install_productivity_tools(){
     marked
     mailbox
     )
-  # TODO: Determine how to deal with App Store apps?
 
   echo -e "${h1}Installing Productivity Apps${NC}"
   cask_install ${productivity_casks[@]}
@@ -179,8 +176,6 @@ function install_utilities(){
     smoothmouse
     phoneclean
     )
-    # Growl
-    # HardwareGrowler
 
   echo -e "${h1}Installing Utilities${NC}"
   cask_install ${utility_casks[@]}
@@ -246,9 +241,7 @@ function install_terminal_utilities(){
 }
 
 function install_rainbow(){
-# Install Rainbow
 # https://github.com/nicoulaj/rainbow
-# v2.5: https://github.com/nicoulaj/rainbow/archive/2.5.0.zip
   mkdir tmp
   curl -L https://github.com/nicoulaj/rainbow/archive/2.5.0.zip -o tmp/rainbow.zip
   cd tmp
