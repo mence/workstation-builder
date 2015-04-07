@@ -36,7 +36,6 @@ function install(){
   install_multimedia_apps     # Install Multimedia Apps
   install_other_apps          # Install Random Apps
   install_fonts               # Install Programming Fonts
-  #install_color_schemes      # Install Color Schemes
   install_terminal_utilities  # Install Terminal Utilities
   install_dotfiles            # Install and Configure Personal Dotfiles
   install_python_apps         # Install Applications via Python
@@ -272,12 +271,6 @@ function install_fonts(){
   echo -e "${h1}Installing Programming Fonts${NC}"
   brew tap caskroom/Fonts   # Add the font cask to Homebrew
   cask_install ${font_casks[@]}
-}
-
-function install_color_schemes(){
-  echo -e "${h1}Installing Color Schemes${NC}"
-  # Install Solarized Color Scheme
-  # https://github.com/altercation/solarized
 }
 
 function install_python_apps(){
