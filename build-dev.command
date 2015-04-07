@@ -99,7 +99,6 @@ function install_development_tools()
 {
   development_casks=
   (
-    0xdbe-eap
     arduino
     atom
     ccmenu
@@ -128,12 +127,13 @@ function install_development_tools()
   # RubyMine and IntelliJ depend on Java 6
   cask_install caskroom/homebrew-versions/java6
 
-  idea_casks=
+  jetbrains_casks=
   (
+    0xdbe-eap
     rubymine
     intellij-idea
   )
-  cask_install ${idea_casks[@]}
+  cask_install ${jetbrains_casks[@]}
 
   development_kegs=
   (
