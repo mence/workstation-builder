@@ -236,6 +236,7 @@ function install_multimedia_apps()
     lastfm
     rdio
     spotifree
+    spotify
     vlc
   )
   echo -e "${h1}Installing Multimedia Apps${NC}"
