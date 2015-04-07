@@ -52,7 +52,7 @@ function install_homebrew_apps(){
     )
 
   echo -e "\033[33m--- Installing Homebrew Applications ---\033[0m"
-  homebrew_install $homebrew_apps
+  homebrew_install ${homebrew_apps[@]}
   sudo brew install mtr --no-gtk  # mtr needs command-line flags
 }
 
@@ -71,7 +71,7 @@ function install_browsers(){
     )
 
   echo -e "\033[33m--- Installing Browsers ---\033[0m"
-  cask_install $browser_casks
+  cask_install ${browser_casks[@]}
   # TODO: Determine how to install Chrome extensions from command line
 }
 
@@ -97,22 +97,22 @@ function install_development_tools(){
     pstree
     watch
     macvim
+    caskroom/homebrew-versions/sublime-text3
+    caskroom/homebrew-versions/google-chrome-canary
     )
   # TODO: Allow for optional choices (eg. IntelliJ which eats the world)
 
   echo -e "\033[33m--- Installing Development Tools ---\033[0m"
   cask_install $development_casks
 
-  # Sublime Text 3
-  brew cask install caskroom/homebrew-versions/sublime-text3
-
-  # Google Canary
-  brew cask install caskroom/homebrew-versions/google-chrome-canary
-
   # RubyMine and IntelliJ depend on Java 6
-  brew cask install caskroom/homebrew-versions/java6
-  brew cask install rubymine
-  brew cask install intellij-idea
+  cask_install caskroom/homebrew-versions/java6
+
+  idea_casks=(
+    rubymine
+    intellij-idea
+  )
+  cask_install ${idea_casks[@]}
 }
 
 function install_collaboration_tools(){
@@ -124,7 +124,7 @@ function install_collaboration_tools(){
     )
 
   echo -e "\033[33m--- Installing Collaboration Tools ---\033[0m"
-  cask_install $collaboration_casks
+  cask_install ${collaboration_casks[@]}
 }
 
 function install_productivity_tools(){
@@ -143,7 +143,7 @@ function install_productivity_tools(){
   # TODO: Determine how to deal with App Store apps?
 
   echo -e "\033[33m--- Installing Productivity Apps ---\033[0m"
-  cask_install $productivity_casks
+  cask_install ${productivity_casks[@]}
 }
 
 function install_utilities(){
@@ -167,7 +167,7 @@ function install_utilities(){
     # HardwareGrowler
 
   echo -e "\033[33m--- Installing Utilities ---\033[0m"
-  cask_install $utility_casks
+  cask_install ${utility_casks[@]}
 }
 
 function install_quicklook_upgrades(){
@@ -185,7 +185,7 @@ function install_quicklook_upgrades(){
     )
 
   echo -e "\033[33m--- Installing QuickLook Upgrades ---\033[0m"
-  cask_install $quicklook_upgrade_casks
+  cask_install ${quicklook_upgrade_casks[@]}
   defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder # Allow copying text from QL
 }
 
@@ -199,7 +199,7 @@ function install_multimedia_apps(){
     )
 
   echo -e "\033[33m--- Installing Multimedia Apps ---\033[0m"
-  cask_install $multimedia_casks
+  cask_install ${multimedia_casks[@]}
 }
 
 function install_other_apps(){
@@ -209,7 +209,7 @@ function install_other_apps(){
     )
 
   echo -e "\033[33m--- Installing Random Apps ---\033[0m"
-  cask_install $random_casks
+  cask_install ${random_casks[@]}
 }
 
 function install_dotfiles(){
@@ -254,7 +254,7 @@ function install_fonts(){
 
   echo -e "\033[33m--- Installing Programming Fonts ---\033[0m"
   brew tap caskroom/Fonts   # Add the font cask to Homebrew
-  cask_install $font_casks
+  cask_install ${font_casks[@]}
 }
 
 function install_color_schemes(){
@@ -270,17 +270,15 @@ function install_python_apps(){
 }
 
 function homebrew_install(){
-  for kegs in $kegs; do
-    echo "Installing Homebrew: $keg"
-    "brew install $keg"
-  done
+  array=($@)
+  echo "INFO: Installing Homebrew applications: $@"
+  brew install ${array[@]}
 }
 
 function cask_install(){
-  for casks in $casks; do
-    echo "Installing Cask: $cask"
-    "brew cask install $cask"
-  done
+  array=($@)
+  echo "INFO: Installing Homebrew Caskroom applications: $@"
+  brew cask install ${array[@]}
 }
 
 install # Let's do some installing!
