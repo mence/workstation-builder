@@ -153,6 +153,7 @@ function install_utilities(){
     coconutbattery
     crashplan
     smoothmouse
+    phoneclean
     )
     # Growl
     # HardwareGrowler
