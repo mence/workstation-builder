@@ -22,7 +22,8 @@ h1="${cyan}==> "
 h2="${yellow}INFO: "
 warn="${red}WARNING: "
 
-function install(){
+function install()
+{
   update_osx_system           # Check for System Updates
   install_homebrew            # Install Homebrew
   install_homebrew_apps       # Install Homebrew Apps
@@ -41,19 +42,23 @@ function install(){
   install_python_apps         # Install Applications via Python
 }
 
-function update_osx_system(){
+function update_osx_system()
+{
   echo -e "${h1}Running System Updates${NC}"
   sudo softwareupdate --install -all
 }
 
-function install_homebrew(){
+function install_homebrew()
+{
   echo -e "${h1}Installing Homebrew${NC}"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew doctor
 }
 
-function install_homebrew_apps(){
-  homebrew_apps=(
+function install_homebrew_apps()
+{
+  homebrew_apps=
+  (
     git
     curl
     iftop
@@ -65,33 +70,36 @@ function install_homebrew_apps(){
     node
     shellcheck
     cowsay
-    )
-
+  )
   echo -e "${h1}Installing Homebrew Applications${NC}"
   homebrew_install ${homebrew_apps[@]}
   brew install mtr --no-gtk  # mtr needs command-line flags
 }
 
-function install_homebrew_cask(){
+function install_homebrew_cask()
+{
   echo -e "${h1}Setting up Homebrew Cask${NC}"
   brew tap caskroom/cask
   brew install brew-cask
   brew doctor
 }
 
-function install_browsers(){
-  browser_casks=(
+function install_browsers()
+{
+  browser_casks=
+  (
     google-chrome
     firefox
     chromium
-    )
-
+  )
   echo -e "${h1}Installing Browsers${NC}"
   cask_install ${browser_casks[@]}
 }
 
-function install_development_tools(){
-  development_casks=(
+function install_development_tools()
+{
+  development_casks=
+  (
     sublime-text
     virtualbox
     sequel-pro
@@ -110,21 +118,22 @@ function install_development_tools(){
     macvim
     caskroom/homebrew-versions/sublime-text3
     caskroom/homebrew-versions/google-chrome-canary
-    )
-
+  )
   echo -e "${h1}Installing Development Tools${NC}"
   cask_install $development_casks
 
   # RubyMine and IntelliJ depend on Java 6
   cask_install caskroom/homebrew-versions/java6
 
-  idea_casks=(
+  idea_casks=
+  (
     rubymine
     intellij-idea
   )
   cask_install ${idea_casks[@]}
 
-  development_kegs=(
+  development_kegs=
+  (
     icdiff
     entr
     pstree
@@ -133,20 +142,23 @@ function install_development_tools(){
   homebrew_install ${development_kegs[@]}
 }
 
-function install_collaboration_tools(){
-  collaboration_casks=(
+function install_collaboration_tools()
+{
+  collaboration_casks=
+  (
     slack
     hipchat
     propane
     adium
-    )
-
+  )
   echo -e "${h1}Installing Collaboration Tools${NC}"
   cask_install ${collaboration_casks[@]}
 }
 
-function install_productivity_tools(){
-  productivity_casks=(
+function install_productivity_tools()
+{
+  productivity_casks=
+  (
     evernote
     skitch
     dropbox
@@ -157,14 +169,15 @@ function install_productivity_tools(){
     keyboard-maestro
     marked
     mailbox
-    )
-
+  )
   echo -e "${h1}Installing Productivity Apps${NC}"
   cask_install ${productivity_casks[@]}
 }
 
-function install_utilities(){
-  utility_casks=(
+function install_utilities()
+{
+  utility_casks=
+  (
     flux
     bettertouchtool
     alfred
@@ -179,14 +192,15 @@ function install_utilities(){
     crashplan
     smoothmouse
     phoneclean
-    )
-
+  )
   echo -e "${h1}Installing Utilities${NC}"
   cask_install ${utility_casks[@]}
 }
 
-function install_quicklook_upgrades(){
-  quicklook_upgrade_casks=(
+function install_quicklook_upgrades()
+{
+  quicklook_upgrade_casks=
+  (
     qlcolorcode
     qlstephen
     qlmarkdown
@@ -198,37 +212,39 @@ function install_quicklook_upgrades(){
     suspicious-package
     cert-quicklook
     epubquicklook
-    )
-
+  )
   echo -e "${h1}Installing QuickLook Upgrades${NC}"
   cask_install ${quicklook_upgrade_casks[@]}
   defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder # Allow copying text from QL
 }
 
-function install_multimedia_apps(){
-  multimedia_casks=(
+function install_multimedia_apps()
+{
+  multimedia_casks=
+  (
     vlc
     spotifree
     rdio
     lastfm
     chromecast
-    )
-
+  )
   echo -e "${h1}Installing Multimedia Apps${NC}"
   cask_install ${multimedia_casks[@]}
 }
 
-function install_other_apps(){
-  random_casks=(
+function install_other_apps()
+{
+  random_casks=
+  (
     dogecoin
     reeddit
-    )
-
+  )
   echo -e "${h1}Installing Random Apps${NC}"
   cask_install ${random_casks[@]}
 }
 
-function install_dotfiles(){
+function install_dotfiles()
+{
   echo -e "${h1}Installing Personal Dotfiles${NC}"
   git clone https://github.com/mence/dotfiles.git ~/.dotfiles
   cp ~/.dotfiles/.bash_profile.template ~/.bash_profile
@@ -238,15 +254,17 @@ function install_dotfiles(){
   ln -s ~/.dotfiles/.iftoprc ~/.iftoprc
 }
 
-function install_terminal_utilities(){
+function install_terminal_utilities()
+{
   echo -e "${h1}Installing Terminal Utilities${NC}"
   install_rainbow
   brew tap tldr-pages/tldr    # install tl;dr manpages
   brew install tldr
 }
 
-function install_rainbow(){
 # https://github.com/nicoulaj/rainbow
+function install_rainbow()
+{
   mkdir tmp
   curl -L https://github.com/nicoulaj/rainbow/archive/2.5.0.zip -o tmp/rainbow.zip
   cd tmp
@@ -258,32 +276,36 @@ function install_rainbow(){
   rm -rf tmp
 }
 
-function install_fonts(){
-  font_casks=(
+function install_fonts()
+{
+  font_casks=
+  (
     font-inconsolata  # Inconsolata
     font-fontawesome  # Font Awesome
     font-roboto       # Roboto
     font-roboto-slab  # Roboto Slab
   )
-
   echo -e "${h1}Installing Programming Fonts${NC}"
   brew tap caskroom/Fonts   # Add the font cask to Homebrew
   cask_install ${font_casks[@]}
 }
 
-function install_python_apps(){
+function install_python_apps()
+{
   echo -e "${h1}Installing Python Applications${NC}"
   brew install python
   pip install lolcat # Because lolcat
 }
 
-function homebrew_install(){
+function homebrew_install()
+{
   array=($@)
   echo -e "${h2}Installing Homebrew applications: $@${NC}"
   brew install ${array[@]}
 }
 
-function cask_install(){
+function cask_install()
+{
   array=($@)
   echo -e "${h2} Installing Homebrew Caskroom applications: $@${NC}"
   brew cask install ${array[@]}
