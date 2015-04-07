@@ -102,6 +102,12 @@ function install_development_tools(){
   echo -e "\033[33m--- Installing Development Tools ---\033[0m"
   cask_install $development_casks
 
+  # Sublime Text 3
+  brew cask install caskroom/homebrew-versions/sublime-text3
+
+  # Google Canary
+  brew cask install caskroom/homebrew-versions/google-chrome-canary
+
   # RubyMine and IntelliJ depend on Java 6
   brew cask install caskroom/homebrew-versions/java6
   brew cask install rubymine
