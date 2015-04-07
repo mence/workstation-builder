@@ -34,7 +34,7 @@ function update_osx_system(){
 
 function install_homebrew(){
   echo -e "\033[33m--- Installing Homebrew ---\033[0m"
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew doctor
 }
 
