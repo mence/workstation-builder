@@ -96,6 +96,7 @@ function install_development_tools(){
     entr
     pstree
     watch
+    macvim
     )
   # TODO: Allow for optional choices (eg. IntelliJ which eats the world)
 
@@ -112,10 +113,6 @@ function install_development_tools(){
   brew cask install caskroom/homebrew-versions/java6
   brew cask install rubymine
   brew cask install intellij-idea
-
-  # MacVim
-  brew cask install macvim
-  brew linkapps macvim
 }
 
 function install_collaboration_tools(){
