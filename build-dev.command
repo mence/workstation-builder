@@ -81,7 +81,7 @@ function install_development_tools(){
     virtualbox
     sequel-pro
     charles
-    dbeaver
+    dbeaver-community
     gitx-rowanj
     github
     cyberduck
