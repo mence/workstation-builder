@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Workstation Builder v0.5
+# Workstation Builder v0.6
 # Tim Hordern (@mence)
 # This is a basic shell script to build an OSX development environment from scratch.
 # Linting is done with shellcheck: https://github.com/koalaman/shellcheck
