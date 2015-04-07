@@ -131,6 +131,7 @@ function install_productivity_tools(){
     hazel
     keyboard-maestro
     marked
+    mailbox
     )
   # TODO: Determine how to deal with App Store apps?
 
