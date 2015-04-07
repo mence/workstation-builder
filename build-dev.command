@@ -61,8 +61,8 @@ function install_command-line_apps()
   (
     git
     curl
-    iftop
     htop-osx
+    iftop
     tree
     the_silver_searcher
     unrar
@@ -100,24 +100,24 @@ function install_development_tools()
 {
   development_casks=
   (
-    sublime-text
-    virtualbox
-    sequel-pro
-    charles
-    dbeaver-community
-    rowanj-gitx
-    github
-    cyberduck
-    processing
     arduino
-    iterm2
     atom
+    charles
+    cyberduck
     dash
-    heroku-toolbelt
-    sauce
-    macvim
-    caskroom/homebrew-versions/sublime-text3
+    dbeaver-community
+    github
     caskroom/homebrew-versions/google-chrome-canary
+    heroku-toolbelt
+    iterm2
+    macvim
+    processing
+    rowanj-gitx
+    sauce
+    sequel-pro
+    sublime-text
+    caskroom/homebrew-versions/sublime-text3
+    virtualbox
   )
   echo -e "${h1}Installing Development Tools${NC}"
   cask_install $development_casks
@@ -134,14 +134,14 @@ function install_development_tools()
 
   development_kegs=
   (
-    icdiff
+    casperjs
     entr
+    icdiff
+    node
+    phantomjs
+    postgres
     pstree
     watch
-    node
-    postgres
-    phantomjs
-    casperjs
   )
   homebrew_install ${development_kegs[@]}
 
@@ -157,10 +157,10 @@ function install_collaboration_tools()
 {
   collaboration_casks=
   (
-    slack
+    adium
     hipchat
     propane
-    adium
+    slack
   )
   echo -e "${h1}Installing Collaboration Tools${NC}"
   cask_install ${collaboration_casks[@]}
@@ -170,16 +170,16 @@ function install_productivity_tools()
 {
   productivity_casks=
   (
-    evernote
-    skitch
-    dropbox
     calibre
-    sequential
+    dropbox
+    evernote
     fantastical
     hazel
     keyboard-maestro
-    marked
     mailbox
+    marked
+    sequential
+    skitch
   )
   echo -e "${h1}Installing Productivity Apps${NC}"
   cask_install ${productivity_casks[@]}
@@ -189,20 +189,20 @@ function install_utilities()
 {
   utility_casks=
   (
-    flux
-    bettertouchtool
-    alfred
-    cheatsheet
-    carbon-copy-cloner
-    appcleaner
     1password
-    smcfancontrol
+    alfred
+    appcleaner
     bartender
+    bettertouchtool
     caffeine
+    carbon-copy-cloner
+    cheatsheet
     coconutbattery
     crashplan
-    smoothmouse
+    flux
     phoneclean
+    smcfancontrol
+    smoothmouse
   )
   echo -e "${h1}Installing Utilities${NC}"
   cask_install ${utility_casks[@]}
@@ -212,17 +212,17 @@ function install_quicklook_upgrades()
 {
   quicklook_upgrade_casks=
   (
-    qlcolorcode
-    qlstephen
-    qlmarkdown
-    quicklook-json
-    qlprettypatch
-    quicklook-csv
     betterzipql
-    webpquicklook
-    suspicious-package
     cert-quicklook
     epubquicklook
+    qlcolorcode
+    qlmarkdown
+    qlprettypatch
+    qlstephen
+    quicklook-csv
+    quicklook-json
+    suspicious-package
+    webpquicklook
   )
   echo -e "${h1}Installing QuickLook Upgrades${NC}"
   cask_install ${quicklook_upgrade_casks[@]}
@@ -233,11 +233,11 @@ function install_multimedia_apps()
 {
   multimedia_casks=
   (
-    vlc
-    spotifree
-    rdio
-    lastfm
     chromecast
+    lastfm
+    rdio
+    spotifree
+    vlc
   )
   echo -e "${h1}Installing Multimedia Apps${NC}"
   cask_install ${multimedia_casks[@]}
