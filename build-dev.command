@@ -157,7 +157,11 @@ function install_development_tools()
   node_packages=
   (
     coffee-script
+    jasmine
+    localtunnel
+    mocha
     yo
+    zuul
   )
   node_install ${node_packages[@]}
 }
