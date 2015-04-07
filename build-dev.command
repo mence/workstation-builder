@@ -216,12 +216,13 @@ function install_rainbow(){
 # https://github.com/nicoulaj/rainbow
 # v2.5: https://github.com/nicoulaj/rainbow/archive/2.5.0.zip
   mkdir tmp
-  curl https://github.com/nicoulaj/rainbow/archive/2.5.0.zip tmp/rainbow.zip
-  unzip tmp/rainbow.zip
+  curl -L https://github.com/nicoulaj/rainbow/archive/2.5.0.zip -o tmp/rainbow.zip
   cd tmp/rainbow
+  unzip rainbow.zip
+  cd rainbow-2.5.0
   echo "You will be prompted for your Administrator password."
-  "sudo python setup.py install"
-  cd ../..
+  sudo python setup.py install
+  cd ../../..
   rm -rf tmp
 }
 
