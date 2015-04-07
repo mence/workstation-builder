@@ -111,6 +111,7 @@ function install_development_tools(){
 function install_collaboration_tools(){
   collaboration_casks=(
     slack
+    hipchat
     propane
     adium
     )
