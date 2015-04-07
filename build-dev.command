@@ -5,8 +5,6 @@
 # This is a basic shell script to build an OSX development environment from scratch.
 # Linting is done with shellcheck: https://github.com/koalaman/shellcheck
 
-install # Let's do some installing!
-
 function install(){
   update_osx_system           # Check for System Updates
   install_homebrew            # Install Homebrew
@@ -286,3 +284,5 @@ function cask_install(){
     "brew cask install $cask"
   done
 }
+
+install # Let's do some installing!
