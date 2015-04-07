@@ -107,10 +107,6 @@ function install_development_tools(){
     dash
     heroku-toolbelt
     sauce
-    icdiff
-    entr
-    pstree
-    watch
     macvim
     caskroom/homebrew-versions/sublime-text3
     caskroom/homebrew-versions/google-chrome-canary
@@ -127,6 +123,14 @@ function install_development_tools(){
     intellij-idea
   )
   cask_install ${idea_casks[@]}
+
+  development_kegs=(
+    icdiff
+    entr
+    pstree
+    watch
+  )
+  homebrew_install ${development_kegs[@]}
 }
 
 function install_collaboration_tools(){
