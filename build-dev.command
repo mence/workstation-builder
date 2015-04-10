@@ -104,12 +104,14 @@ function install_development_tools()
     ccmenu
     charles
     cyberduck
+    caskroom/homebrew-unofficial/d3visualizer
     dash
     dbeaver-community
     github
     caskroom/homebrew-versions/google-chrome-canary
     heroku-toolbelt
     iterm2
+    caskroom/homebrew-unofficial/iterm2-borderless
     macvim
     processing
     rowanj-gitx
@@ -182,6 +184,7 @@ function install_development_tools()
     postico
     pgadmin3
     valentina-studio
+    caskroom/homebrew-unofficial/toad
   )
   cask_install ${postgres_casks[@]}
 }
