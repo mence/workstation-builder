@@ -63,6 +63,7 @@ function install_command-line_apps()
     curl
     htop-osx
     iftop
+    spark
     tree
     the_silver_searcher
     unrar
