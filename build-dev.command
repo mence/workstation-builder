@@ -91,6 +91,7 @@ function install_browsers()
     google-chrome
     firefox
     chromium
+    jadengeller-helium
   )
   echo -e "${h1}Installing Browsers${NC}"
   cask_install ${browser_casks[@]}
@@ -236,6 +237,7 @@ function install_utilities()
     cheatsheet
     coconutbattery
     crashplan
+    flashlight
     flux
     phoneclean
     smcfancontrol
