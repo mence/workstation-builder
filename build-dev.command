@@ -320,6 +320,7 @@ function install_terminal_utilities()
   install_rainbow
   brew tap tldr-pages/tldr    # install tl;dr manpages
   homebrew_install tldr
+  cask_install since
 }
 
 # https://github.com/nicoulaj/rainbow
