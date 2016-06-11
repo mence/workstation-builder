@@ -5,7 +5,15 @@ tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'homebrew/dupes'
 tap 'homebrew/versions'
+tap 'homebrew/services'
+tap 'homebrew/completions'
 tap 'homebrew/command-not-found'
+tap 'homebrew/tex'
+#tap 'homebrew/nginx'
+#tap 'homebrew/science'
+#tap 'homebrew/emacs'
+#tap 'homebrew/apache'
+#tap 'homebrew/python'
 
 # Caskroom Taps
 tap 'caskroom/cask'
@@ -39,7 +47,6 @@ brew 'cheat'
 
 # Homebrew: Additional Shells
 brew 'zsh'
-brew 'oh-my-zsh'
 brew 'zsh-completions'
 #brew 'antigen' # Alternative package manager for Vim
 #brew 'vundle' # Alternative package manager for Vim
@@ -51,14 +58,9 @@ brew 'cloc'
 brew 'vim', args: ['override-system-vi']
 brew 'emacs', args: ['with-cocoa', 'with-gnutls']
 brew 'flow'
-brew 'jenkins'
-brew 'jmeter'
 brew 'nvm' # TODO post-setup steps
 brew 'nginx'
-brew 'phantomjs'
-brew 'casperjs'
 brew 'shellcheck'
-brew 'neo4j'
 brew 'ansible'
 brew 'awscli'
 brew 'git-extras'
@@ -67,6 +69,12 @@ brew 's3cmd'
 brew 'sift'
 brew 'ssh-copy-id'
 brew 'prettyping'
+
+# Homebrew: Testing
+brew 'phantomjs'
+brew 'casperjs'
+brew 'jmeter'
+brew 'vegeta'
 
 # Homebrew: Databases
 brew 'mysql', restart_service: :changed # TODO post-setup steps
@@ -80,12 +88,18 @@ brew 'redis'
 brew 'go'
 brew 'mercurial'
 brew 'node'
-brew 'python'
 brew 'ruby'
 brew 'racket'
 brew 'ocaml'
 brew 'elixir'
 brew 'leiningen'
+
+# Homebrew: Python
+brew 'python'
+brew 'autoenv'
+
+# Homebrew: Git Addons
+brew 'git-standup'
 
 # Homebrew: Utilities
 brew 'cputhrottle'
@@ -134,6 +148,7 @@ brew 'ffmpeg',
   'with-xvid',
   'with-zeromq' ]
 brew 'youtube-dl'
+brew 'jq'
 
 # Homebrew: Image Manipulation
 brew 'imagemagick'
@@ -160,8 +175,8 @@ brew 'fortune'
 tap 'mopidy/mopidy'
 brew 'mopidy/mopidy/mopidy'
 brew 'mopidy/mopidy/libspotify'
-brew 'mopidy/mopidy/modify-spotify'
-brew 'mopidy/mopidy/modify-soundcloud'
+brew 'mopidy/mopidy/mopidy-spotify'
+brew 'mopidy/mopidy/mopidy-soundcloud'
 
 # --- CASKROOM APPLICATIONS ---
 
@@ -173,11 +188,13 @@ cask 'gephi'
 cask 'iterm2-beta'
 cask 'vlc'
 cask 'google-drive'
-cask 'crashplan'
+cask 'crashplan' # TODO SHA mismatch
 cask 'keyboard-maestro6'
 cask 'todotxt'
 cask 'dropbox'
 cask 'dayone-cli'
+cask 'box-sync'
+cask 'spotify'
 
 # Casks: Development IDEs
 cask 'atom'
@@ -191,11 +208,13 @@ cask 'webstorm'
 cask 'datagrip'
 #cask 'datagrip-eap' # EAP is the Beta
 cask 'dbeaver-community'
+cask 'brackets'
 
 # Casks: Development Utilities
 cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
+cask 'vagrant'
 cask 'karabiner'
 cask 'hammerspoon'
 cask 'heroku-toolbelt'
@@ -203,7 +222,6 @@ cask 'dash'
 cask 'gephi'
 cask 'screenhero'
 cask 'little-snitch'
-cask 'docker-toolbox'
 cask 'totalterminal'
 cask 'charles-beta'
 cask 'electron'
@@ -214,6 +232,11 @@ cask 'abricotine'
 cask 'postman'
 cask 'transmit'
 
+# Casks: Docker
+cask 'dockertoolbox'
+tap 'zzrotdesign/tap'
+brew 'docker-clean'
+
 # Casks: Git
 cask 'rowanj-gitx'
 cask 'tower-beta'
@@ -223,18 +246,24 @@ cask 'gitkraken'
 cask 'java6'
 cask 'java7'
 cask 'java'
-brew 'maven'
+#brew 'maven'
+tap 'jcgay/jcgay'
+brew 'maven-deluxe' # maven with shiny colours
 brew 'ant',
   args: [
   'with-ivy',
   'with-bcel' ]
+brew 'jenkins'
+brew 'neo4j'
 cask 'dbvisualizer'
 
 # Casks: Browsers
+cask 'google-chrome'
 cask 'google-chrome-canary'
 cask 'google-photos-backup'
 cask 'chromium'
 #cask 'freesmug-chromium' # Alternate pre-compiled build
+cask 'firefox'
 cask 'opera'
 cask 'brave'
 cask 'min'
@@ -247,6 +276,7 @@ cask 'discord'
 cask 'textual' # IRC
 cask 'skype'
 cask 'franz'
+cask 'google-hangouts'
 
 # Casks: Taskbar Apps
 cask 'lastfm'
@@ -257,6 +287,8 @@ cask 'bartender'
 cask 'caffeine'
 cask 'flux'
 cask 'yujitach-menumeters'
+cask 'istat-menus'
+cask 'tripmode'
 
 # Casks: Utilities
 cask 'appcleaner'
@@ -271,8 +303,8 @@ cask 'ubersicht'
 cask 'fluid'
 cask 'deeper'
 cask 'coconutbattery'
-cask 'crunch'
-cask 'knock'
+cask 'crunch' # TODO Confirm
+cask 'knock' # TODO SHA mismatch
 cask 'duet'
 cask 'sequential'
 cask 'diskwave'
@@ -286,22 +318,22 @@ cask 'save-hollywood'
 cask 'steam'
 
 # Casks: Betas
-cask 'airmail-beta'
+cask 'airmail-beta' # TODO SHA mismatch
 
 # Casks: Other
 cask 'mailbutler'
-cask 'scansnap-manager-ix500'
+cask 'scansnap-manager-ix500' # TODO Download failed
 
 # Casks: QuickLook Extensions
 cask 'betterzipql'
 cask 'cert-quicklook'
 cask 'epubquicklook'
-cask 'webp-quicklook'
+cask 'webpquicklook'
 cask 'provisionql'
 cask 'qlcolorcode'
 cask 'qlmarkdown'
 cask 'qlprettypatch'
-cask 'qlstephen'
+cask 'qlstephen' # TODO Download failed
 cask 'quicklook-csv'
 cask 'quicklook-json'
 cask 'qlImageSize'
@@ -321,8 +353,10 @@ cask 'font-droid-sans-mono-for-powerline'
 cask 'font-fira-code'
 cask 'font-fira-mono-for-powerline'
 cask 'font-fira-sans'
+cask 'font-fontawesome'
 cask 'font-hack'
 cask 'font-hermit'
+cask 'font-inconsolata'
 cask 'font-inconsolata-dz-for-powerline'
 cask 'font-inconsolata-for-powerline'
 cask 'font-inconsolata-g-for-powerline'
@@ -341,6 +375,7 @@ cask 'font-open-sans'
 cask 'font-open-sans-condensed'
 cask 'font-raleway'
 cask 'font-roboto'
+cask 'font-roboto-slab'
 cask 'font-rokkitt'
 cask 'font-sauce-code-powerline'
 cask 'font-sinkin-sans'
@@ -354,26 +389,40 @@ cask 'font-work-sans'
 
 # --- MAC APP STORE APPLICATIONS ---
 
-# Mac App Store: Main Applications
-mas '1Password', id: 443987910
-mas 'Evernote', id: 406056744
-mas 'Growl', id: 467939042
-mas 'GrowlTunes', id: 499190094
-mas 'HardwareGrowler', id: 475260933
-mas 'WiFi Explorer', id: 494803304
-mas 'Sunrise Calendar', id: 886106985
-mas 'Wunderlist', id: 410628904
-mas 'Keynote', id: 409183694
-mas 'Day One', id: 1055511498
-mas 'Pages', id: 409201541
-mas 'Numbers', id: 409203825
-mas 'DaisyDisk' id: 411643860
-mas 'Reeder 3', id: 880001334
+# Primary Account
+#mas '1Password', id: 443987910
+#mas 'Evernote', id: 406056744
+#mas 'Growl', id: 467939042
+#mas 'HardwareGrowler', id: 475260933
+#mas 'Sunrise Calendar', id: 886106985
+#mas 'Keynote', id: 409183694
+#mas 'Day One Classic', id: 422304217
+#mas 'Pages', id: 409201541
+#mas 'Numbers', id: 409203825
+#mas 'Memory Clean - Monitor and Free Up Memory', id: 451444120
+#mas 'Microsoft Remote Desktop', id: 715768417
+#mas 'CCMenu', id: 603117688
+
+# Secondary Account
 mas 'Twitter', id: 409789998
 mas 'TweetDeck by Twitter', id: 485812721
-mas 'Memory Clean - Monitor and Free Up Memory', id: 451444120
+mas 'GrowlTunes', id: 499190094
+mas 'WiFi Explorer', id: 494803304
+mas 'Wunderlist', id: 410628904
+mas 'DaisyDisk', id: 411643860
+mas 'Reeder 3', id: 880001334
+mas 'Day One', id: 1055511498
 
-# --- CLEANUP ---
+# --- MAINTENANCE ---
 
 # Homebrew Brewfile manager
-brew 'rcmdnk/file/brew-file'
+tap 'rcmdnk/file'
+brew 'brew-file'
+
+# --- OPTIONAL ---
+# https://github.com/EricChiang/pup
+#brew 'https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb'
+
+# https://github.com/redspread/spread
+#tap 'redspread/spread'
+#brew 'spread'

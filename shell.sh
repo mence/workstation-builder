@@ -11,6 +11,15 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 # Homebrew
 # install package manager
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew analytics off
+
+# BREWFILE
+
+brew update
+brew doctor
+brew upgrade
+brew doctor
+brew cleanup
 
 # install homebrew packages
 brew install \

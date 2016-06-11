@@ -1,7 +1,44 @@
 #!/bin/sh
 
+# SETUP
+
 pretty_print() {
   printf "\n%b\n" "$1"
+}
+
+# Colored Prompts
+# Other useful colors:
+# yellow_dim='\033[33m'
+# yellow_bright='\033[1;33m'
+# green='\033[0;32m'
+
+yellow='\033[33m'
+cyan='\033[0;36m'
+red='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Easier references to warnings in colored echo -e prompts
+
+h1="${cyan}==> "
+h2="${yellow}INFO: "
+warn="${red}WARNING: "
+
+pretty_h1() {
+  echo ""
+  echo "${h1}$1${NC}"
+  echo ""
+}
+
+pretty_info() {
+  echo ""
+  echo "${h2}$1${NC}"
+  echo ""  
+}
+
+pretty_warning() {
+  echo ""
+  echo "${warn}$1${NC}"
+  echo ""  
 }
 
 ###############################################################################
@@ -10,8 +47,7 @@ pretty_print() {
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 ###############################################################################
 
-echo "Setting OS X Preferences..."
-echo ""
+pretty_h1 "Setting OS X preferences..."
 
 # Ask for the administrator password upfront
 sudo -v
@@ -77,7 +113,7 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 echo "Disable the 'Are you sure you want to open this application?' dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-echo "Remove duplicates in the 'Open With' menu (also see `lscleanup` alias)"
+echo "Remove duplicates in the 'Open With' menu (also see 'lscleanup' alias)"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 echo "Disable Resume system-wide"
@@ -171,7 +207,7 @@ defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
-echo "Set the timezone; see `sudo systemsetup -listtimezones` for other values"
+echo "Set the timezone; see 'sudo systemsetup -listtimezones' for other values"
 sudo systemsetup -settimezone "America/New_York" > /dev/null
 
 echo "Disable auto-correct"
@@ -467,15 +503,15 @@ sudo mdutil -E / > /dev/null
 echo "Prevent Time Machine from prompting to use new hard drives as backup volume"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-echo "Disable local Time Machine backups. THIS MEANS YOU MUST HAVE A REMOTE/EXTERNAL TIME MACHINE!"
+echo "Disable local Time Machine backups."
+pretty_warning "THIS MEANS YOU MUST HAVE A REMOTE/EXTERNAL TIME MACHINE!"
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Safari & WebKit
 ###############################################################################
 
-echo "Setting Safari preferences..."
-echo ""
+echo "" && echo "Setting Safari preferences..." && echo ""
 
 ### Safari > Preferences… > General
 
@@ -485,7 +521,7 @@ defaults write 'com.apple.Safari' 'NewWindowBehavior' -int 1
 echo "New tabs open with: Empty Page"
 defaults write 'com.apple.Safari' 'NewTabBehavior' -int 1
 
-echo "Set Safari’s home page to `about:blank` for faster loading"
+echo "Set Safari’s home page to 'about:blank' for faster loading"
 defaults write com.apple.Safari HomePage -string "about:blank"
 
 ### Safari > Preferences… > Tabs
@@ -590,14 +626,13 @@ defaults write org.webkit.nightly.WebKit StartPageDisabled -bool true
 # Disk Utility, Mac App Store, Photos, QuickTime
 ###############################################################################
 
-echo "Setting Apple application preferences..."
-echo ""
+echo "" && echo "Setting Apple application preferences..." && echo ""
 
 echo "Disable send and reply animations in Mail.app"
 defaults write com.apple.mail DisableReplyAnimations -bool true
 defaults write com.apple.mail DisableSendAnimations -bool true
 
-echo "Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app"
+echo "Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app"
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 echo "Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app"
@@ -669,11 +704,11 @@ echo "OSX preferences are set. Note that some of these changes require a logout/
 # https://github.com/argon/mas/releases
 ###############################################################################
 
-echo "Setting up XCode..."
-echo ""
+echo "" && echo "Setting up XCode..." && echo ""
 
 echo "Download and expand mas-cli"
-curl -fsSL https://github.com/argon/mas/releases/download/v1.2.0/mas-cli.zip | unzip
+curl -fsSL https://github.com/argon/mas/releases/download/v1.2.0/mas-cli.zip
+unzip mas-cli.zip
 
 echo "Sign-in to the Mac App Store"
 pretty_print "What is your Mac App Store login?"
@@ -683,7 +718,7 @@ read -s mac_app_store_password
 ./mas signin $mac_app_store_login $mac_app_store_password
 
 echo "Install XCode"
-./mas install 497799835 # Xcode
+./mas install 497799835 # XCode
 
 echo "Accept the XCode license"
 sudo xcodebuild -license
