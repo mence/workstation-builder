@@ -9,11 +9,11 @@ tap 'homebrew/services'
 tap 'homebrew/completions'
 tap 'homebrew/command-not-found'
 tap 'homebrew/tex'
-#tap 'homebrew/nginx'
-#tap 'homebrew/science'
-#tap 'homebrew/emacs'
-#tap 'homebrew/apache'
-#tap 'homebrew/python'
+# tap 'homebrew/nginx'
+# tap 'homebrew/science'
+# tap 'homebrew/emacs'
+# tap 'homebrew/apache'
+# tap 'homebrew/python'
 
 # Caskroom Taps
 tap 'caskroom/cask'
@@ -48,8 +48,8 @@ brew 'cheat'
 # Homebrew: Additional Shells
 brew 'zsh'
 brew 'zsh-completions'
-#brew 'antigen' # Alternative package manager for Vim
-#brew 'vundle' # Alternative package manager for Vim
+# brew 'antigen' # Alternative package manager for Vim
+# brew 'vundle' # Alternative package manager for Vim
 brew 'mobile-shell'
 
 # Homebrew: Development
@@ -267,13 +267,13 @@ cask 'totalterminal'
 cask 'atom'
 cask 'sublime-text3'
 cask 'intellij-idea'
-#cask 'intellij-idea-eap' # EAP is the Beta
+# cask 'intellij-idea-eap' # EAP is the Beta
 cask 'rubymine'
-#cask 'rubymine-eap' # EAP is the Beta
+# cask 'rubymine-eap' # EAP is the Beta
 cask 'webstorm'
-#cask 'webstorm-eap' # EAP is the Beta
+# cask 'webstorm-eap' # EAP is the Beta
 cask 'datagrip'
-#cask 'datagrip-eap' # EAP is the Beta
+# cask 'datagrip-eap' # EAP is the Beta
 cask 'dbeaver-community'
 cask 'brackets'
 
@@ -320,9 +320,9 @@ cask 'gitkraken'
 cask 'java6'
 cask 'java7'
 cask 'java'
-#brew 'maven'
+brew 'maven'
 tap 'jcgay/jcgay'
-brew 'maven-deluxe' # maven with shiny colours
+# brew 'maven-deluxe' # maven with shiny colours
 brew 'ant',
   args: [
   'with-ivy',
@@ -336,7 +336,7 @@ cask 'google-chrome'
 cask 'google-chrome-canary'
 cask 'google-photos-backup'
 cask 'chromium'
-#cask 'freesmug-chromium' # Alternate pre-compiled build
+# cask 'freesmug-chromium' # Alternate pre-compiled build
 cask 'firefox'
 cask 'opera'
 cask 'brave'
@@ -466,18 +466,18 @@ cask 'font-work-sans'
 # Alternative command: appstore 'Foo'
 
 # Primary Account
-#mas '1Password', id: 443987910
-#mas 'Evernote', id: 406056744
-#mas 'Growl', id: 467939042
-#mas 'HardwareGrowler', id: 475260933
-#mas 'Sunrise Calendar', id: 886106985
-#mas 'Keynote', id: 409183694
-#mas 'Day One Classic', id: 422304217
-#mas 'Pages', id: 409201541
-#mas 'Numbers', id: 409203825
-#mas 'Memory Clean - Monitor and Free Up Memory', id: 451444120
-#mas 'Microsoft Remote Desktop', id: 715768417
-#mas 'CCMenu', id: 603117688
+# mas '1Password', id: 443987910
+# mas 'Evernote', id: 406056744
+# mas 'Growl', id: 467939042
+# mas 'HardwareGrowler', id: 475260933
+# mas 'Sunrise Calendar', id: 886106985
+# mas 'Keynote', id: 409183694
+# mas 'Day One Classic', id: 422304217
+# mas 'Pages', id: 409201541
+# mas 'Numbers', id: 409203825
+# mas 'Memory Clean - Monitor and Free Up Memory', id: 451444120
+# mas 'Microsoft Remote Desktop', id: 715768417
+# mas 'CCMenu', id: 603117688
 
 # Secondary Account
 mas 'Twitter', id: 409789998
@@ -497,8 +497,8 @@ brew 'brew-file'
 
 # --- OPTIONAL ---
 # https://github.com/EricChiang/pup
-#brew 'https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb'
+# brew 'https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb'
 
 # https://github.com/redspread/spread
-#tap 'redspread/spread'
-#brew 'spread'
+# tap 'redspread/spread'
+# brew 'spread'
