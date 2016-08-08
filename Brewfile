@@ -290,7 +290,6 @@ cask 'screenhero'
 cask 'electron'
 cask 'cyberduck'
 cask 'fishapp'
-cask 'abricotine'
 cask 'transmit'
 brew 'textql'
 
