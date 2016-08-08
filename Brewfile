@@ -287,16 +287,19 @@ cask 'heroku-toolbelt'
 cask 'dash'
 cask 'gephi'
 cask 'screenhero'
-cask 'little-snitch'
-cask 'charles-beta'
 cask 'electron'
-cask 'wireshark'
 cask 'cyberduck'
 cask 'fishapp'
 cask 'abricotine'
-cask 'postman'
 cask 'transmit'
 brew 'textql'
+
+# Casks: Network / Traffic Testing
+cask 'wireshark'
+cask 'little-snitch'
+cask 'charles-beta'
+cask 'postman'
+cask 'angry-ip-scanner'
 
 # Casks: Docker
 cask 'dockertoolbox'
