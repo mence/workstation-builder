@@ -69,6 +69,18 @@ brew 's3cmd'
 brew 'sift'
 brew 'ssh-copy-id'
 brew 'prettyping'
+brew 'pv'
+brew 'cookiecutter' # https://github.com/audreyr/cookiecutter
+
+# Homebrew: ctags (https://github.com/universal-ctags/ctags)
+tap 'universal-ctags/universal-ctags'
+brew 'universal-ctags' --HEAD
+
+# Homebrew: Testing
+brew 'phantomjs'
+brew 'casperjs'
+brew 'jmeter'
+brew 'vegeta'
 
 # Homebrew: Testing
 brew 'phantomjs'
@@ -93,6 +105,23 @@ brew 'racket'
 brew 'ocaml'
 brew 'elixir'
 brew 'leiningen'
+brew 'lua'
+
+# Homebrew: Python
+brew 'python'
+brew 'autoenv'
+
+# Homebrew: Java
+brew 'checkstyle'
+
+# Homebrew: Swift
+brew 'swiftlint'
+
+# Homebrew: C++
+brew 'cppcheck'
+
+# Homebrew: Git Addons
+brew 'git-standup'
 
 # Homebrew: Python
 brew 'python'
@@ -114,8 +143,28 @@ brew 'wget'
 brew 'the_silver_searcher'
 brew 'icdiff'
 brew 'unrar'
-brew 'wget'
 brew 'nmap'
+brew 'jq'
+
+# Homebrew Shell Completion: https://github.com/Homebrew/homebrew-completions
+brew 'apm-bash-completion'
+brew 'boot2docker-completion'
+brew 'brew-cask-completion'
+brew 'bundler-completion'
+brew 'docker-completion'
+brew 'docker-compose-completion'
+brew 'docker-machine-completion'
+brew 'gem-completion'
+brew 'grunt-completion'
+brew 'launchctl-completion'
+brew 'maven-completion'
+brew 'pip-completion'
+brew 'ruby-completion'
+brew 'rails-completion'
+brew 'rake-completion'
+brew 'vagrant-completion'
+
+# Homebrew: Video
 brew 'ffmpeg',
   args: [
   'with-faac',
@@ -148,7 +197,18 @@ brew 'ffmpeg',
   'with-xvid',
   'with-zeromq' ]
 brew 'youtube-dl'
-brew 'jq'
+brew 'mpv',
+  args: [
+  'with-bundle',
+  'with-libaacs',
+  'with-libbluray',
+  'with-libcaca',
+  'with-libdvdnav',
+  'with-libdvdread',
+  'with-shared',
+  'with-uchardet',
+  'with-vapoursynth',
+  'with-x11' ]
 
 # Homebrew: Image Manipulation
 brew 'imagemagick'
@@ -181,11 +241,9 @@ brew 'mopidy/mopidy/mopidy-soundcloud'
 # --- CASKROOM APPLICATIONS ---
 
 # Casks: Main Applications
-cask 'alfred'
 cask 'anylist'
 cask 'fullcontact'
 cask 'gephi'
-cask 'iterm2-beta'
 cask 'vlc'
 cask 'google-drive'
 cask 'crashplan' # TODO SHA mismatch
@@ -195,6 +253,15 @@ cask 'dropbox'
 cask 'dayone-cli'
 cask 'box-sync'
 cask 'spotify'
+
+# Casks: Launchers
+cask 'alfred'
+cask 'lacona'
+
+# Casks: Terminal
+cask 'iterm2-beta'
+cask 'black-screen'
+cask 'totalterminal'
 
 # Casks: Development IDEs
 cask 'atom'
@@ -211,7 +278,6 @@ cask 'dbeaver-community'
 cask 'brackets'
 
 # Casks: Development Utilities
-cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'vagrant'
@@ -222,7 +288,6 @@ cask 'dash'
 cask 'gephi'
 cask 'screenhero'
 cask 'little-snitch'
-cask 'totalterminal'
 cask 'charles-beta'
 cask 'electron'
 cask 'wireshark'
@@ -231,6 +296,13 @@ cask 'fishapp'
 cask 'abricotine'
 cask 'postman'
 cask 'transmit'
+brew 'textql'
+
+# Casks: Docker
+cask 'dockertoolbox'
+tap 'zzrotdesign/tap'
+brew 'docker-clean'
+brew 'hadolint' # https://github.com/lukasmartinelli/hadolint
 
 # Casks: Docker
 cask 'dockertoolbox'
@@ -277,6 +349,7 @@ cask 'textual' # IRC
 cask 'skype'
 cask 'franz'
 cask 'google-hangouts'
+cask 'yakyak'
 
 # Casks: Taskbar Apps
 cask 'lastfm'
@@ -388,6 +461,7 @@ cask 'font-ubuntu-mono-powerline'
 cask 'font-work-sans'
 
 # --- MAC APP STORE APPLICATIONS ---
+# Alternative command: appstore 'Foo'
 
 # Primary Account
 #mas '1Password', id: 443987910

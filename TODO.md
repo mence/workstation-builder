@@ -16,3 +16,62 @@ Tweetbot - https://github.com/mathiasbynens/dotfiles/blob/master/.osx#L755
     killall "${app}" &> /dev/null
   done
   echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+https://github.com/vonwenm/CHOCCO-LAB/blob/master/XXX-setup.ps1
+
+# TODO: Consider these
+
+seafile
+owncloud
+
+# DONE
+## correct name
+dockertoolbox
+webpquicklook
+
+## post java
+jenkins
+neo4j
+
+## retry download
+qlstephen
+
+# sha mismatch
+knock
+airmail-beta
+
+# MAS Failed
+Evernote - Unknown Error
+Sunrise Calendar - Unknown Error
+Wunderlist: To-Do List & Tasks - Unknown Error
+
+# MAS Failed due to not purchased
+GrowlTunes - Unknown Error
+
+# TODO
+
+https://dl.dropboxusercontent.com/u/622216/battleschool/playbooks/playbook.yml
+
+```
+- name: install gvm the Groovy enVironment Manager
+  mac_pkg: pkg_type=script script_creates=/usr/local/bin/gvm
+           script_prefix="echo | " script_exe=bash
+           url=http://get.gvmtool.net
+```
+
+## Brew
+dnsmasq
+
+
+# LONG TERM BROKEN
+
+## sha mismatch
+crashplan
+font-sinkin-sans
+
+## download failed (404)
+scansnap-manager-ix500
+
+## Font hardlink failed
+font-work-sans
+

@@ -17,3 +17,11 @@ curl -L https://iterm2.com/misc/install_shell_integration_and_utilities.sh | bas
 # oh-my-zsh
 
 # oh-my-fish
+# https://github.com/oh-my-fish/oh-my-fish
+curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install > install
+fish install
+
+# Ruby
+gem install bundler
+
+# RVM

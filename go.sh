@@ -1,6 +1,12 @@
+#!/bin/bash
+
 go get -d github.com/pinterest/knox
 go get github.com/buger/gor
 go get github.com/looterz/grimd
+
+# Linters (also used for SublimeLinter)
+go get -u github.com/golang/lint/golint
+go get -u github.com/ckaznocha/protoc-gen-lint
 
 # command-line fuzzy finder: https://github.com/junegunn/fzf
 brew install fzf
@@ -17,5 +23,9 @@ go get github.com/eladg/tapi
 #https://github.com/micro/micro
 go get github.com/micro/micro
 
-# boom load test: https://github.com/rakyll/boom
-go get github.com/rakyll/boom
+# Testing
+go get github.com/rakyll/boom # https://github.com/rakyll/boom
+go get github.com/jgrahamc/httpdiff # https://github.com/jgrahamc/httpdiff
+
+# Utilities
+go get github.com/jehiah/json2csv # https://github.com/jehiah/json2csv

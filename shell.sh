@@ -5,9 +5,6 @@
 # https://gist.github.com/saetia/1623487
 ###############################################################################
 
-# Switch to z-shell
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-
 # Homebrew
 # install package manager
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -15,6 +12,20 @@ brew analytics off
 
 # BREWFILE
 
+brew update
+brew doctor
+brew upgrade
+brew doctor
+brew cleanup
+
+# Turn off extra analytics
+brew analytics off
+
+# Install Bundle
+brew tap homebrew/bundle
+brew bundle
+
+# System maintenance
 brew update
 brew doctor
 brew upgrade
@@ -78,6 +89,9 @@ vagrant \
 ksdiff \
 spotify
 
+# Switch to z-shell
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
 # Update .zshrc
 wget https://gist.githubusercontent.com/saetia/2764210/raw/ab099b587689640eb32cbc1afdb6a19b62be7fb0/.zshrc -O \
 ~/.zshrc
@@ -85,9 +99,4 @@ wget https://gist.githubusercontent.com/saetia/2764210/raw/ab099b587689640eb32cb
 #syntax highlighting
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git \
 ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-
-
-
-
-
 
