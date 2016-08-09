@@ -13,6 +13,7 @@ npm install -g typescript
 npm install -g create-react-app
 npm install -g jest-cli
 npm install -g react-native-ignite # https://github.com/infinitered/ignite
+npm install -g react-monocle # https://github.com/team-gryff/react-monocle
 
 # Linters (also used in SublimeLinter)
 npm install -g eslint
