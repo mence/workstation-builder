@@ -82,12 +82,6 @@ brew 'casperjs'
 brew 'jmeter'
 brew 'vegeta'
 
-# Homebrew: Testing
-brew 'phantomjs'
-brew 'casperjs'
-brew 'jmeter'
-brew 'vegeta'
-
 # Homebrew: Databases
 brew 'mysql', restart_service: :changed # TODO post-setup steps
 brew 'postgresql', restart_service: :changed # TODO post-setup steps
@@ -226,6 +220,7 @@ brew 'pandoc'
 
 # Homebrew: Productivity
 brew 'todo-txt'
+brew 'nvalt' # Post install steps in post-cask-install.sh
 
 # Homebrew: Fun
 brew 'cowsay'

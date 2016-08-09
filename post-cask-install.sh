@@ -24,4 +24,7 @@ fish install
 # Ruby
 gem install bundler
 
-# RVM
+# nvALT
+# nvalt-prime: nvALT Preview Theme - https://github.com/bwiggs/nvalt-prime
+rm -rf ~/Library/Application\ Support/nvALT
+git clone git@github.com:bwiggs/nvalt-prime.git ~/Library/Application\ Support/nvALT
