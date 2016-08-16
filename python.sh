@@ -2,6 +2,33 @@
 
 # TODO: Port to Brewfile 'brew pip foo': https://github.com/hanxue/brew-pip
 
+### --- SETUP ---
+
+# TODO: Consider using pyenv
+# penv: https://github.com/yyuu/pyenv
+brew install pyenv
+pyenv install 3.5.0
+pyenv install 3.4.3
+pyenv install 3.3.6
+pyenv install 3.2.6
+pyenv install 2.7.10
+pyenv install 2.6.9
+eval "$(pyenv init -)" >> ~/.bash_profile # TODO: Move to .dotfiles
+
+# pyenv plugins
+# pyenv-virtualenv: https://github.com/yyuu/pyenv-virtualenv
+brew install pyenv-virtualenv
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile # TODO: Move to .dotfiles
+
+# pyenv-virtualenvwrapper: https://github.com/yyuu/pyenv-virtualenvwrapper
+brew install pyenv-virtualenvwrapper
+# TODO: Add to dotfiles: export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
+# Add Autoenv to bashrc
+echo 'source /usr/local/opt/autoenv/activate.sh' >> ~/.bashrc
+
+# --- GENERAL ---
+
 pip install waybackpack
 #pip install hogwatch
 #pip install voltron
@@ -9,11 +36,10 @@ pip install waybackpack
 # tq: https://github.com/plainas/tq
 sudo pip install https://github.com/plainas/tq/zipball/stable
 
-# Add Autoenv to bashrc
-echo 'source /usr/local/opt/autoenv/activate.sh' >> ~/.bashrc
-
 # Development
 pip install cookiecutter # https://github.com/audreyr/cookiecutter
+pip install requests: # http://docs.python-requests.org/en/latest/
+pip install Flask # http://flask.pocoo.org/
 
 # Testing
 pip3 install trypackage # https://github.com/timofurrer/try
@@ -30,6 +56,7 @@ sudo pip install youtube-dlg # https://github.com/MrS0m30n3/youtube-dl-gui
 pip3 install you-get # https://github.com/soimort/you-get
 pip install ImageScraper # https://github.com/sananth12/ImageScraper
 pip install pyspider # https://github.com/binux/pyspider
+pip install beautifulsoup4 # https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 
 # Utilities
 pip install maybe # https://github.com/p-e-w/maybe
