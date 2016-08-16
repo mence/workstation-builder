@@ -14,7 +14,14 @@ heroku plugins:install heroku-cli-addons
 # iTerm2 shell integration
 curl -L https://iterm2.com/misc/install_shell_integration_and_utilities.sh | bash
 
+# zsh Package Managers
 # oh-my-zsh
+# https://github.com/robbyrussell/oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# antigen
+curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
+source antigen.zsh
 
 # oh-my-fish
 # https://github.com/oh-my-fish/oh-my-fish
