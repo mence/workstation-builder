@@ -131,7 +131,7 @@ brew 'iftop' # TODO post-setup steps
 brew 'mtr'
 brew 'pstree'
 brew 'tree'
-# brew 'watch'
+brew 'watch'
 # brew 'watchman'
 brew 'wget'
 brew 'the_silver_searcher'
@@ -301,11 +301,6 @@ tap 'zzrotdesign/tap'
 brew 'docker-clean'
 brew 'hadolint' # https://github.com/lukasmartinelli/hadolint
 
-# Casks: Docker
-cask 'dockertoolbox'
-tap 'zzrotdesign/tap'
-brew 'docker-clean'
-
 # Casks: Git
 cask 'rowanj-gitx'
 cask 'tower-beta'
@@ -326,10 +321,14 @@ brew 'jenkins'
 brew 'neo4j'
 cask 'dbvisualizer'
 
+# Casks: Google
+cask 'google-photos-backup'
+cask 'google-cloud-sdk'
+cask 'google-hangouts'
+
 # Casks: Browsers
 cask 'google-chrome'
 cask 'google-chrome-canary'
-cask 'google-photos-backup'
 cask 'chromium'
 # cask 'freesmug-chromium' # Alternate pre-compiled build
 cask 'firefox'
@@ -346,7 +345,6 @@ cask 'discord'
 cask 'textual' # IRC
 cask 'skype'
 cask 'franz'
-cask 'google-hangouts'
 cask 'yakyak'
 
 # Casks: Taskbar Apps
