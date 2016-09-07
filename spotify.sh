@@ -11,3 +11,6 @@ brew install spotify/sptaps/hmtools
 brew install spotify/sptaps/sphadoop
 brew install spotify/sptaps/styx-cli
 brew install spotify/sptaps/churl --HEAD # https://ghe.spotify.net/security/client-core-tools
+
+brew tap spotify/public
+brew install scio
