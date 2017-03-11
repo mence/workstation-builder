@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: Replace `npm install -g` with `yarn global add` for faster install. Requires `brew install yarn` as prerequisite
+
 # Development
 npm install -g hotel
 npm install -g npm-check
@@ -8,6 +10,8 @@ npm install -g yo
 npm install -g jsome # https://github.com/Javascipt/Jsome
 npm install -g nodemon # https://github.com/remy/nodemon
 npm install -g typescript
+npm install -g git-recent
+npm install -g lebab # https://github.com/lebab/lebab
 
 # React
 npm install -g create-react-app

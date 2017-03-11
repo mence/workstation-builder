@@ -48,17 +48,17 @@ brew 'cheat'
 # Homebrew: Additional Shells
 brew 'zsh'
 brew 'zsh-completions'
-# brew 'antigen' # Alternative package manager for Vim
-# brew 'vundle' # Alternative package manager for Vim
+# brew 'antigen' # Alternative package manager for Zsh
 brew 'mobile-shell'
 
 # Homebrew: Development
 brew 'entr'
 brew 'cloc'
-brew 'vim', args: ['override-system-vi']
-brew 'emacs', args: ['with-cocoa', 'with-gnutls']
-brew 'flow'
-brew 'nvm' # TODO post-setup steps
+brew 'emacs', 
+  args: [
+    'with-cocoa', 
+    'with-gnutls'
+  ]
 brew 'nginx'
 brew 'shellcheck'
 brew 'ansible'
@@ -71,6 +71,22 @@ brew 'ssh-copy-id'
 brew 'prettyping'
 brew 'pv'
 brew 'cookiecutter' # https://github.com/audreyr/cookiecutter
+brew 'jid'
+brew 'jq'
+
+# Homebrew: Vim
+brew 'lua', args: ['with-completion']
+brew 'luajit'
+brew 'vim', 
+  args: [
+    'with-client-server', 
+    'with-lua', 
+    'with-luajit', 
+    'with-override-system-vi', 
+    'with-tcl'
+  ]
+# brew 'vundle' # Alternative package manager for Vim
+cask 'macvim'
 
 # Homebrew: ctags (https://github.com/universal-ctags/ctags)
 tap 'universal-ctags/universal-ctags'
@@ -93,13 +109,17 @@ brew 'redis'
 # Homebrew: Programming Languages
 brew 'go'
 brew 'mercurial'
-brew 'node'
 brew 'ruby'
 brew 'racket'
 brew 'ocaml'
 brew 'elixir'
 brew 'leiningen'
-brew 'lua'
+
+# Homebrew: Javascript
+brew 'node'
+brew 'flow'
+brew 'nvm' # TODO post-setup steps
+brew 'yarn'
 
 # Homebrew: Python
 brew 'python'
@@ -136,9 +156,11 @@ brew 'watch'
 brew 'wget'
 brew 'the_silver_searcher'
 brew 'icdiff'
+brew 'diff-so-fancy'
 brew 'unrar'
 brew 'nmap'
 brew 'jq'
+brew 'neofetch' # For making fancy screenshots: https://github.com/dylanaraps/neofetch
 
 # Homebrew Shell Completion: https://github.com/Homebrew/homebrew-completions
 brew 'apm-bash-completion'
@@ -161,48 +183,50 @@ brew 'vagrant-completion'
 # Homebrew: Video
 brew 'ffmpeg',
   args: [
-  'with-faac',
-  'with-fdk-aac',
-  'with-ffplay',
-  'with-fontconfig',
-  'with-freetype',
-  'with-frei0r',
-  'with-lame',
-  'with-libass',
-  'with-libbluray',
-  'with-libcaca',
-  'with-libsoxr',
-  'with-libssh',
-  'with-libvidstab',
-  'with-libvorbis',
-  'with-libvpx',
-  'with-opencore-amr',
-  'with-openjpeg',
-  'with-openssl',
-  'with-opus',
-  'with-rtmpdump',
-  'with-schroedinger',
-  'with-speex',
-  'with-theora',
-  'with-tools',
-  'with-webp',
-  'with-x264',
-  'with-x265',
-  'with-xvid',
-  'with-zeromq' ]
+    'with-faac',
+    'with-fdk-aac',
+    'with-ffplay',
+    'with-fontconfig',
+    'with-freetype',
+    'with-frei0r',
+    'with-lame',
+    'with-libass',
+    'with-libbluray',
+    'with-libcaca',
+    'with-libsoxr',
+    'with-libssh',
+    'with-libvidstab',
+    'with-libvorbis',
+    'with-libvpx',
+    'with-opencore-amr',
+    'with-openjpeg',
+    'with-openssl',
+    'with-opus',
+    'with-rtmpdump',
+    'with-schroedinger',
+    'with-speex',
+    'with-theora',
+    'with-tools',
+    'with-webp',
+    'with-x264',
+    'with-x265',
+    'with-xvid',
+    'with-zeromq'
+  ]
 brew 'youtube-dl'
 brew 'mpv',
   args: [
-  'with-bundle',
-  'with-libaacs',
-  'with-libbluray',
-  'with-libcaca',
-  'with-libdvdnav',
-  'with-libdvdread',
-  'with-shared',
-  'with-uchardet',
-  'with-vapoursynth',
-  'with-x11' ]
+    'with-bundle',
+    'with-libaacs',
+    'with-libbluray',
+    'with-libcaca',
+    'with-libdvdnav',
+    'with-libdvdread',
+    'with-shared',
+    'with-uchardet',
+    'with-vapoursynth',
+    'with-x11'
+  ]
 
 # Homebrew: Image Manipulation
 brew 'imagemagick'
@@ -221,6 +245,7 @@ brew 'pandoc'
 # Homebrew: Productivity
 brew 'todo-txt'
 brew 'nvalt' # Post install steps in post-cask-install.sh
+brew 'jrnl' # https://github.com/maebert/jrnl - following Day One installation, sync via http://jrnl.sh/advanced.html
 
 # Homebrew: Fun
 brew 'cowsay'
@@ -315,8 +340,9 @@ tap 'jcgay/jcgay'
 # brew 'maven-deluxe' # maven with shiny colours
 brew 'ant',
   args: [
-  'with-ivy',
-  'with-bcel' ]
+    'with-ivy',
+    'with-bcel'
+  ]
 brew 'jenkins'
 brew 'neo4j'
 cask 'dbvisualizer'
@@ -481,6 +507,8 @@ mas 'Wunderlist', id: 410628904
 mas 'DaisyDisk', id: 411643860
 mas 'Reeder 3', id: 880001334
 mas 'Day One', id: 1055511498
+mas 'Alternote — the Beautiful Note-taking App for Evernote', id: 974971992
+mas 'Be Focused Pro - Focus Timer & Goal Tracker', id: 961632517
 
 # --- MAINTENANCE ---
 

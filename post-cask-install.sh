@@ -29,6 +29,11 @@ curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install > instal
 fish install
 
 # nvALT
-# nvalt-prime: nvALT Preview Theme - https://github.com/bwiggs/nvalt-prime
+## nvalt-prime: nvALT Preview Theme - https://github.com/bwiggs/nvalt-prime
 rm -rf ~/Library/Application\ Support/nvALT
 git clone git@github.com:bwiggs/nvalt-prime.git ~/Library/Application\ Support/nvALT
+
+# Vim
+## vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
