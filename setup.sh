@@ -7,7 +7,7 @@ echo "STARTING WORKSTATION BUILDER"
 
 # Setup Xcode
 # TODO fully automated install
-read -p "Press [Enter] key after installing Xcode manually..."
+read -pr "Press [Enter] key after installing Xcode manually..."
 ./xcode.sh
 
 # Install Homebrew
@@ -23,11 +23,11 @@ export HOMEBREW_CASK_OPTS="--verbose"
 brew bundle --verbose
 
 # mas install for AUS
-read -p "Press [Enter] key after switching Mac App Store to AUS account..."
+read -pr "Press [Enter] key after switching Mac App Store to AUS account..."
 ./mas_AUS.sh
 
 # mas install for AUS
-read -p "Press [Enter] key after switching Mac App Store to US account..."
+read -pr "Press [Enter] key after switching Mac App Store to US account..."
 ./mas_US.sh
 
 # Run post-cask-install

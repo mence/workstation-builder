@@ -32,13 +32,13 @@ pretty_h1() {
 pretty_info() {
   echo ""
   echo "${h2}$1${NC}"
-  echo ""  
+  echo ""
 }
 
 pretty_warning() {
   echo ""
   echo "${warn}$1${NC}"
-  echo ""  
+  echo ""
 }
 
 ###############################################################################
@@ -60,7 +60,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 pretty_print "What would you like to name your computer?"
-read computer_name
+read -r computer_name
 echo "Set computer name (as done via System Preferences → Sharing)"
 sudo scutil --set ComputerName "$computer_name"
 sudo scutil --set HostName "$computer_name"
@@ -484,7 +484,7 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 echo "Show the full URL in the address bar (note: this still hides the scheme)"
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
-echo "Set Safari’s home page to `about:blank` for faster loading"
+echo "Set Safari’s home page to 'about:blank' for faster loading"
 defaults write com.apple.Safari HomePage -string "about:blank"
 
 echo "Prevent Safari from opening ‘safe’ files automatically after downloading"
@@ -537,7 +537,7 @@ echo "Block pop-up windows"
 defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
 
-echo "Enable “Do Not Track”"
+echo "Enable 'Do Not Track'"
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 echo "Update extensions automatically"

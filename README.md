@@ -14,7 +14,7 @@ Run `./setup.sh`
 
 Currently these scripts are built in Bash.
 
-Linting is done with [shellcheck](https://github.com/koalaman/shellcheck).
+Linting is done with [shellcheck](https://github.com/koalaman/shellcheck) and [Rubocop](https://github.com/bbatsov/rubocop)
 
 ## Future Development
 

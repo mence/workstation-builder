@@ -38,48 +38,48 @@ brew 'curl'
 brew 'openssl'
 brew 'homebrew/dupes/grep'
 brew 'wget',
-  args: [
-    'with-gpgme',
-    'with-libmetalink',
-    'with-pcre'
-  ]
+     args: [
+       'with-gpgme',
+       'with-libmetalink',
+       'with-pcre'
+     ]
 brew 'python',
-  args: [
-    'with-sphinx-doc',
-    'with-tcl-tk'
-  ]
+     args: [
+       'with-sphinx-doc',
+       'with-tcl-tk'
+     ]
 brew 'python3',
-  args: [
-    'with-sphinx-doc',
-    'with-tcl-tk'
-  ]
+     args: [
+       'with-sphinx-doc',
+       'with-tcl-tk'
+     ]
 brew 'gcc'
 brew 'gpg2',
-  args: [
-    'with-gpg-zip',
-    'with-gpgsplit',
-    'with-readline'
-  ]
+     args: [
+       'with-gpg-zip',
+       'with-gpgsplit',
+       'with-readline'
+     ]
 
 # Caskroom: Dependencies
 cask 'xquartz'
 
 # Homebrew: Supplementary Dependencies
 brew 'imagemagick',
-  args: [
-    'with-fftw',
-    'with-fontconfig',
-    'with-ghostscript',
-    'with-hdri',
-    'with-little-cms',
-    'with-little-cms2',
-    'with-opencl',
-    'with-openexr',
-    'with-openjpeg',
-    'with-openmp',
-    'with-pango',
-    'with-webp'
-  ]
+     args: [
+       'with-fftw',
+       'with-fontconfig',
+       'with-ghostscript',
+       'with-hdri',
+       'with-little-cms',
+       'with-little-cms2',
+       'with-opencl',
+       'with-openexr',
+       'with-openjpeg',
+       'with-openmp',
+       'with-pango',
+       'with-webp'
+     ]
 
 # Homebrew: Shell
 brew 'bash'
@@ -95,9 +95,9 @@ brew 'tldr-pages/tldr/tldr'
 # Homebrew: Linux Utilities
 brew 'hfsutils'
 brew 'coreutils',
-  args: [
-    'with-gmp'
-  ]
+     args: [
+       'with-gmp'
+     ]
 brew 'moreutils'
 brew 'findutils'
 
@@ -115,10 +115,10 @@ brew 'git-lfs'
 brew 'entr'
 brew 'cloc'
 brew 'emacs',
-  args: [
-    'with-cocoa',
-    'with-gnutls'
-  ]
+     args: [
+       'with-cocoa',
+       'with-gnutls'
+     ]
 brew 'shellcheck'
 brew 'ansible'
 brew 'packer'
@@ -131,9 +131,10 @@ brew 'cookiecutter' # https://github.com/audreyr/cookiecutter
 brew 'jid'
 brew 'jq'
 brew 'consul',
-  args: [
-    'with-web-ui'
-  ], restart_service: :changed
+     args: [
+       'with-web-ui'
+     ],
+     restart_service: :changed
 brew 'borg'
 
 # Homebrew: Web Servers
@@ -146,9 +147,9 @@ brew 'speedtest_cli'
 # Homebrew: ctags (https://github.com/universal-ctags/ctags)
 tap 'universal-ctags/universal-ctags'
 brew 'universal-ctags',
-  args: [
-    'HEAD'
-  ]
+     args: [
+       'HEAD'
+     ]
 
 # Homebrew: Testing
 brew 'phantomjs'
@@ -162,9 +163,9 @@ tap 'loadimpact/k6'
 brew 'k6'
 
 # Homebrew: Databases
-brew 'mysql', restart_service: :changed # TODO post-setup steps
+brew 'mysql', restart_service: :changed # TODO: post-setup steps
 brew 'mycli'
-brew 'postgresql', restart_service: :changed # TODO post-setup steps
+brew 'postgresql', restart_service: :changed # TODO: post-setup steps
 brew 'sqlite'
 brew 'memcached', restart_service: :changed
 brew 'mongodb', restart_service: :changed
@@ -208,7 +209,7 @@ brew 'cppcheck'
 
 # Homebrew: top viewers
 brew 'htop'
-brew 'iftop' # TODO post-setup steps
+brew 'iftop' # TODO: post-setup steps
 brew 'apachetop'
 brew 'ctop'
 brew 'dnstop'
@@ -238,10 +239,10 @@ brew 'unrar'
 brew 'nmap'
 brew 'neofetch' # For making fancy screenshots: https://github.com/dylanaraps/neofetch
 brew 'dnsmasq',
-  args: [
-    'with-dnssec',
-    'with-libidn'
-  ]
+     args: [
+       'with-dnssec',
+       'with-libidn'
+     ]
 brew 'dark-mode' # Control the macOS dark mode from the command-line
 
 # Homebrew: Security
@@ -259,7 +260,7 @@ brew 'apm-bash-completion'
 brew 'boot2docker-completion'
 brew 'brew-cask-completion'
 brew 'bundler-completion'
-#brew 'docker-completion' # sha mismatch
+# brew 'docker-completion' # sha mismatch
 brew 'docker-compose-completion'
 brew 'docker-machine-completion'
 brew 'gem-completion'
@@ -274,37 +275,37 @@ brew 'vagrant-completion'
 
 # Homebrew: Video
 brew 'ffmpeg',
-  args: [
-    'with-faac',
-    'with-fdk-aac',
-    'with-ffplay',
-    'with-fontconfig',
-    'with-freetype',
-    'with-frei0r',
-    'with-lame',
-    'with-libass',
-    'with-libbluray',
-    'with-libcaca',
-    'with-libsoxr',
-    'with-libssh',
-    'with-libvidstab',
-    'with-libvorbis',
-    'with-libvpx',
-    'with-opencore-amr',
-    'with-openjpeg',
-    'with-openssl',
-    'with-opus',
-    'with-rtmpdump',
-    'with-schroedinger',
-    'with-speex',
-    'with-theora',
-    'with-tools',
-    'with-webp',
-    'with-x264',
-    'with-x265',
-    'with-xvid',
-    'with-zeromq'
-  ]
+     args: [
+       'with-faac',
+       'with-fdk-aac',
+       'with-ffplay',
+       'with-fontconfig',
+       'with-freetype',
+       'with-frei0r',
+       'with-lame',
+       'with-libass',
+       'with-libbluray',
+       'with-libcaca',
+       'with-libsoxr',
+       'with-libssh',
+       'with-libvidstab',
+       'with-libvorbis',
+       'with-libvpx',
+       'with-opencore-amr',
+       'with-openjpeg',
+       'with-openssl',
+       'with-opus',
+       'with-rtmpdump',
+       'with-schroedinger',
+       'with-speex',
+       'with-theora',
+       'with-tools',
+       'with-webp',
+       'with-x264',
+       'with-x265',
+       'with-xvid',
+       'with-zeromq'
+     ]
 brew 'youtube-dl'
 brew 'mpv'
 
@@ -318,7 +319,8 @@ brew 'vbindiff'
 
 # Homebrew: Productivity
 brew 'todo-txt'
-brew 'jrnl' # https://github.com/maebert/jrnl - following Day One installation, sync via http://jrnl.sh/advanced.html
+# Requires Day One. Post-install sync: http://jrnl.sh/advanced.html
+brew 'jrnl' # https://github.com/maebert/jrnl
 
 # Homebrew: Blogs
 brew 'hugo'
@@ -326,17 +328,17 @@ brew 'hugo'
 # Homebrew: Fun
 brew 'cowsay'
 brew 'fortune',
-  args: [
-    'without-offensive'
-  ]
+     args: [
+       'without-offensive'
+     ]
 
 # Homebrew: Mopidy
 # May not be necessary for every machine
-#tap 'mopidy/mopidy'
-#brew 'mopidy/mopidy/mopidy'
-#brew 'mopidy/mopidy/libspotify'
-#brew 'mopidy/mopidy/mopidy-spotify'
-#brew 'mopidy/mopidy/mopidy-soundcloud'
+# tap 'mopidy/mopidy'
+# brew 'mopidy/mopidy/mopidy'
+# brew 'mopidy/mopidy/libspotify'
+# brew 'mopidy/mopidy/mopidy-spotify'
+# brew 'mopidy/mopidy/mopidy-soundcloud'
 
 # --- CASKROOM APPLICATIONS ---
 
@@ -358,7 +360,7 @@ cask 'mkchromecast'
 cask 'statusfy'
 
 # Casks: Cloud Storage
-# cask 'dropbox' # TODO already installed as part of GS install
+# cask 'dropbox' # TODO: already installed as part of GS install
 cask 'google-drive'
 cask 'box-sync'
 cask 'resilio-sync'
@@ -381,10 +383,10 @@ brew 'maven'
 tap 'jcgay/jcgay'
 # brew 'maven-deluxe' # maven with shiny colours
 brew 'ant',
-  args: [
-    'with-ivy',
-    'with-bcel'
-  ]
+     args: [
+       'with-ivy',
+       'with-bcel'
+     ]
 brew 'jenkins' # alternative is Dockerized Jenkins
 brew 'neo4j'
 cask 'dbvisualizer'
@@ -415,7 +417,7 @@ cask 'fish'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'vagrant'
-# cask 'karabiner' # manually install via brew cask install karabiner --no-binaries
+# Manually install via brew cask install karabiner --no-binaries
 # cask 'karabiner', args: { no-binaries }
 cask 'hammerspoon'
 cask 'dash'
@@ -458,13 +460,13 @@ cask 'gitkraken'
 brew 'lua', args: ['with-completion']
 brew 'luajit'
 brew 'vim',
-  args: [
-    'with-client-server',
-    'with-lua',
-    'with-luajit',
-    'with-override-system-vi',
-    'with-tcl'
-  ]
+     args: [
+       'with-client-server',
+       'with-lua',
+       'with-luajit',
+       'with-override-system-vi',
+       'with-tcl'
+     ]
 # brew 'vundle' # Alternative package manager for Vim
 cask 'macvim'
 
@@ -500,7 +502,7 @@ cask 'whatsapp'
 # Casks: Email
 cask 'nylas-mail'
 cask 'mailbutler'
-# cask 'airmail-beta' # TODO SHA mismatch
+# cask 'airmail-beta' # TODO: SHA mismatch
 
 # Casks: Productivity
 cask 'nvalt' # Post install steps in post-cask-install.sh
@@ -541,7 +543,7 @@ cask 'fluid'
 cask 'deeper'
 cask 'coconutbattery'
 cask 'crunch' # https://github.com/chrissimpkins/Crunch
-# cask 'knock' # TODO SHA mismatch
+# cask 'knock' # TODO: SHA mismatch
 cask 'duet'
 cask 'sequential'
 cask 'diskwave'
@@ -595,7 +597,7 @@ cask 'qlcolorcode'
 # cask 'qlmarkdown' # using ttscoff MultiMarkdown QL instead
 cask 'ttscoff-mmd-quicklook'
 cask 'qlprettypatch'
-cask 'qlstephen' # TODO Download failed
+cask 'qlstephen' # TODO: Download failed
 cask 'quicklook-csv'
 cask 'quicklook-json'
 cask 'qlimagesize'
@@ -682,7 +684,7 @@ cask 'font-work-sans'
 # brew 'brew-file'
 
 # Cakebrew GUI Homebrew manager
-# cask 'cakebrew' # TODO certificate problem
+# cask 'cakebrew' # TODO: certificate problem
 
 # --- OPTIONAL ---
 # https://github.com/EricChiang/pup
