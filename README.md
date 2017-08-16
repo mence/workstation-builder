@@ -1,6 +1,14 @@
 # Workstation Builder
 
-This is a basic shell script to build an OSX development environment from scratch.
+This is a basic shell script to build an macOS development environment from scratch.
+
+## Requirements
+
+* macOS Sierra (Most of the scripts should probably work on older versions of OSX as well)
+
+## Usage
+
+Run `./setup.sh`
 
 ## Development
 
