@@ -44,10 +44,14 @@ pretty_warning() {
 ###############################################################################
 # OSX Preferences
 # https://gist.github.com/saetia/1623487
-# https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 ###############################################################################
 
 pretty_h1 "Setting OS X preferences..."
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
 sudo -v
@@ -75,17 +79,21 @@ echo "Disable transparency in the menu bar and elsewhere on Yosemite"
 defaults write com.apple.universalaccess reduceTransparency -bool true
 
 echo "Menu bar: hide the Time Machine, Volume, and User icons"
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-  defaults write "${domain}" dontAutoLoad -array \
-    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
-    "/System/Library/CoreServices/Menu Extras/User.menu"
-done
+defaults -currentHost write dontAutoLoad -array \
+  "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+  "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+  "/System/Library/CoreServices/Menu Extras/User.menu"
 defaults write com.apple.systemuiserver menuExtras -array \
   "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
   "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
   "/System/Library/CoreServices/Menu Extras/Battery.menu" \
   "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+echo "Set sidebar icon size to medium"
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+
+echo "Always show scrollbars"
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
 echo "Disable the over-the-top focus ring animation"
 defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
@@ -119,11 +127,14 @@ echo "Remove duplicates in the 'Open With' menu (also see 'lscleanup' alias)"
 echo "Disable Resume system-wide"
 defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
+echo "Set Help Viewer windows to non-floating mode"
+defaults write com.apple.helpviewer DevMode -bool true
+
 echo "Disable automatic termination of inactive apps"
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
-# echo "Disable the crash reporter"
-#defaults write com.apple.CrashReporter DialogType -string "none"
+echo "Disable the crash reporter"
+defaults write com.apple.CrashReporter DialogType -string "none"
 
 echo "Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window"
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
@@ -143,6 +154,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 echo "Disable smart dashes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+echo "Disable auto-correct"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
 ###############################################################################
 # SSD-specific tweaks
 ###############################################################################
@@ -157,8 +171,8 @@ sudo touch /private/var/vm/sleepimage
 echo "…and make sure it can’t be rewritten"
 sudo chflags uchg /private/var/vm/sleepimage
 
-echo "Disable the sudden motion sensor as it’s not useful for SSDs"
-sudo pmset -a sms 0
+#echo "Disable the sudden motion sensor as it’s not useful for SSDs"
+#sudo pmset -a sms 0
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input
@@ -199,19 +213,16 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 12
 echo "Set a blazingly fast keyboard repeat rate"
 defaults write NSGlobalDomain KeyRepeat -int 0
 
-echo "Set language and text formats"
-# Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
-# `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
-defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits -bool true
-
-echo "Set the timezone; see 'sudo systemsetup -listtimezones' for other values"
-sudo systemsetup -settimezone "America/New_York" > /dev/null
-
-echo "Disable auto-correct"
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+#echo "Set language and text formats"
+## Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
+## `Inches`, `en_GB` with `en_US`, and `true` with `false`.
+#defaults write NSGlobalDomain AppleLanguages -array "en"
+#defaults write NSGlobalDomain AppleLocale -string "en_AUS@currency=AUD"
+#defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+#defaults write NSGlobalDomain AppleMetricUnits -bool true
+#
+#echo "Set the timezone; see 'sudo systemsetup -listtimezones' for other values"
+#sudo systemsetup -settimezone "America/New_York" > /dev/null
 
 ###############################################################################
 # Screen
@@ -288,6 +299,7 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0
 
 echo "Avoid creating .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 echo "Disable disk image verification"
 defaults write com.apple.frameworks.diskimages skip-verify -bool true
@@ -445,58 +457,6 @@ defaults write com.apple.dock wvous-tr-corner -int 5
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
 ###############################################################################
-# Spotlight
-###############################################################################
-
-# echo "Hide Spotlight tray-icon (and subsequent helper)"
-# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
-
-echo "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before."
-# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-
-echo "Change Spotlight indexing order and disable some search results"
-# Yosemite-specific search results (remove them if you are using OS X 10.9 or older):
-#   MENU_DEFINITION
-#   MENU_CONVERSION
-#   MENU_EXPRESSION
-#   MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
-#   MENU_WEBSEARCH             (send search queries to Apple)
-#   MENU_OTHER
-defaults write com.apple.spotlight orderedItems -array \
-  '{"enabled" = 1;"name" = "APPLICATIONS";}' \
-  '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-  '{"enabled" = 0;"name" = "DIRECTORIES";}' \
-  '{"enabled" = 0;"name" = "PDF";}' \
-  '{"enabled" = 0;"name" = "FONTS";}' \
-  '{"enabled" = 0;"name" = "DOCUMENTS";}' \
-  '{"enabled" = 0;"name" = "MESSAGES";}' \
-  '{"enabled" = 0;"name" = "CONTACT";}' \
-  '{"enabled" = 0;"name" = "EVENT_TODO";}' \
-  '{"enabled" = 0;"name" = "IMAGES";}' \
-  '{"enabled" = 0;"name" = "BOOKMARKS";}' \
-  '{"enabled" = 0;"name" = "MUSIC";}' \
-  '{"enabled" = 0;"name" = "MOVIES";}' \
-  '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-  '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-  '{"enabled" = 0;"name" = "SOURCE";}' \
-  '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
-  '{"enabled" = 0;"name" = "MENU_OTHER";}' \
-  '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
-  '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
-  '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
-  '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
-
-echo "Load new settings before rebuilding the index"
-killall mds > /dev/null 2>&1
-
-echo "Make sure indexing is enabled for the main volume"
-sudo mdutil -i on / > /dev/null
-
-echo "Rebuild the index from scratch"
-sudo mdutil -E / > /dev/null
-
-###############################################################################
 # Time Machine
 ###############################################################################
 
@@ -513,13 +473,83 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 echo "" && echo "Setting Safari preferences..." && echo ""
 
+echo "Privacy: don’t send search queries to Apple"
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+echo "Press Tab to highlight each item on a web page"
+defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+
+echo "Show the full URL in the address bar (note: this still hides the scheme)"
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+
+echo "Set Safari’s home page to `about:blank` for faster loading"
+defaults write com.apple.Safari HomePage -string "about:blank"
+
+echo "Prevent Safari from opening ‘safe’ files automatically after downloading"
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
+echo "Allow hitting the Backspace key to go to the previous page in history"
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
+
+echo "Hide Safari’s bookmarks bar by default"
+defaults write com.apple.Safari ShowFavoritesBar -bool false
+
+echo "Hide Safari’s sidebar in Top Sites"
+defaults write com.apple.Safari ShowSidebarInTopSites -bool false
+
+echo "Disable Safari’s thumbnail cache for History and Top Sites"
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+
+echo "Enable Safari’s debug menu"
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+echo "Make Safari’s search banners default to Contains instead of Starts With"
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+
+echo "Remove useless icons from Safari’s bookmarks bar"
+defaults write com.apple.Safari ProxiesInBookmarksBar "()"
+
+echo "Enable the Develop menu and the Web Inspector in Safari"
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+echo "Add a context menu item for showing the Web Inspector in web views"
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+echo "Enable continuous spellchecking"
+defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
+echo "Disable auto-correct"
+defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
+
+echo "Disable AutoFill"
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+defaults write com.apple.Safari AutoFillPasswords -bool false
+defaults write com.apple.Safari AutoFillCreditCardData -bool false
+defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+
+echo "Warn about fraudulent websites"
+defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
+
+echo "Block pop-up windows"
+defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
+
+echo "Enable “Do Not Track”"
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
+echo "Update extensions automatically"
+defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
 ### Safari > Preferences… > General
 
 echo "New windows open with: Empty Page"
-defaults write 'com.apple.Safari' 'NewWindowBehavior' -int 1
+defaults write com.apple.Safari NewWindowBehavior -int 1
 
 echo "New tabs open with: Empty Page"
-defaults write 'com.apple.Safari' 'NewTabBehavior' -int 1
+defaults write com.apple.Safari NewTabBehavior -int 1
 
 echo "Set Safari’s home page to 'about:blank' for faster loading"
 defaults write com.apple.Safari HomePage -string "about:blank"
@@ -527,49 +557,22 @@ defaults write com.apple.Safari HomePage -string "about:blank"
 ### Safari > Preferences… > Tabs
 
 echo "Open pages in tabs instead of windows: Always"
-defaults write 'com.apple.Safari' 'TabCreationPolicy' -int 2
-
-### Safari > Preferences… > AutoFill
-
-echo "Don't autofill info from my Contacts card"
-defaults write 'com.apple.Safari' 'AutoFillFromAddressBook' -bool false
-
-echo "Don't autofill info from credit cards"
-defaults write 'com.apple.Safari' 'AutoFillCreditCardData' -bool false
-
-echo "Don't autofill from any other forms"
-defaults write 'com.apple.Safari' 'AutoFillMiscellaneousForms' -bool false
-
-### Safari > Preferences… > Search
-
-echo "Privacy: don’t send search queries to Apple and don't include Spotlight Suggestions"
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+defaults write com.apple.Safari TabCreationPolicy -int 2
 
 echo "Don't show Favorites in Smart Search"
-defaults write 'com.apple.Safari' 'ShowFavoritesUnderSmartSearchField' -bool false
+defaults write com.apple.Safari ShowFavoritesUnderSmartSearchField -bool false
 
 ### Safari > Preferences… > Privacy
 
 echo "Website use of location services: Deny without prompting"
-defaults write 'com.apple.Safari' 'SafariGeolocationPermissionPolicy' -int 0
-
-echo "Ask websites not to track me"
-defaults write 'com.apple.Safari' 'SendDoNotTrackHTTPHeader' -bool true
-
-### Safari > Preferences… > Notifications
+defaults write com.apple.Safari SafariGeolocationPermissionPolicy -int 0
 
 echo "Don't allow websites to ask for permission to send push notifications"
-defaults write 'com.apple.Safari' 'CanPromptForPushNotifications' -bool false
-
-### Safari > Preferences… > Advanced
-
-echo "Show the full URL in the address bar (note: this still hides the scheme)"
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+defaults write com.apple.Safari CanPromptForPushNotifications -bool false
 
 echo "Default encoding: Unicode (UTF-8)"
-defaults write 'com.apple.Safari' 'WebKitDefaultTextEncodingName' -string 'utf-8'
-defaults write 'com.apple.Safari' 'com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultTextEncodingName' -string 'utf-8'
+defaults write com.apple.Safari WebKitDefaultTextEncodingName -string 'utf-8'
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultTextEncodingName -string 'utf-8'
 
 echo "Enable the Develop menu and the Web Inspector in Safari"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
@@ -579,11 +582,11 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 ### View
 
 echo "Show Favorites Bar"
-defaults write 'com.apple.Safari' 'ShowFavoritesBar-v2' -bool true
+defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true
 
 echo "Show Status Bar"
-defaults write 'com.apple.Safari' 'ShowStatusBar' -bool true
-defaults write 'com.apple.Safari' 'ShowStatusBarInFullScreen' -bool true
+defaults write com.apple.Safari ShowStatusBar -bool true
+defaults write com.apple.Safari ShowStatusBarInFullScreen -bool true
 
 echo "Show Safari’s bookmarks bar by default"
 defaults write com.apple.Safari ShowFavoritesBar -bool true
@@ -606,18 +609,6 @@ defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 # echo "Allow hitting the Backspace key to go to the previous page in history"
 # defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
 
-echo "Disable Safari’s thumbnail cache for History and Top Sites"
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
-
-echo "Enable Safari’s debug menu"
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-
-echo "Make Safari’s search banners default to Contains instead of Starts With"
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
-
-echo "Add a context menu item for showing the Web Inspector in web views"
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-
 echo "Disable WebkitNightly.app's homepage"
 defaults write org.webkit.nightly.WebKit StartPageDisabled -bool true
 
@@ -636,7 +627,7 @@ echo "Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 echo "Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app"
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\U21a9"
+defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\U21a9"
 
 echo "Display emails in threaded mode, sorted by date (oldest at the top)"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
@@ -693,41 +684,155 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 echo "Auto-play videos when opened with QuickTime Player"
 defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen 1
 
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-  "Dock" "Finder" "Mail" "Photos" "Safari" "SystemUIServer" "Terminal"; do
-  killall "${app}" &> /dev/null
-done
+###############################################################################
+# Terminal
+###############################################################################
+
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Use a modified version of the Solarized Dark theme by default in Terminal.app
+osascript <<EOD
+
+tell application "Terminal"
+
+  local allOpenedWindows
+  local initialOpenedWindows
+  local windowID
+  set themeName to "Solarized Dark xterm-256color"
+
+  (* Store the IDs of all the open terminal windows. *)
+  set initialOpenedWindows to id of every window
+
+  (* Open the custom theme so that it gets added to the list
+     of available terminal themes (note: this will open two
+     additional terminal windows). *)
+  do shell script "open '$HOME/init/" & themeName & ".terminal'"
+
+  (* Wait a little bit to ensure that the custom theme is added. *)
+  delay 1
+
+  (* Set the custom theme as the default terminal theme. *)
+  set default settings to settings set themeName
+
+  (* Get the IDs of all the currently opened terminal windows. *)
+  set allOpenedWindows to id of every window
+
+  repeat with windowID in allOpenedWindows
+
+    (* Close the additional windows that were opened in order
+       to add the custom theme to the list of terminal themes. *)
+    if initialOpenedWindows does not contain windowID then
+      close (every window whose id is windowID)
+
+    (* Change the theme for the initial opened terminal windows
+       to remove the need to close them in order for the custom
+       theme to be applied. *)
+    else
+      set current settings of tabs of (every window whose id is windowID) to settings set themeName
+    end if
+
+  end repeat
+
+end tell
+
+EOD
+
+# Enable “focus follows mouse” for Terminal.app and all X11 apps
+# i.e. hover over a window and start typing in it without clicking first
+#defaults write com.apple.terminal FocusFollowsMouse -bool true
+#defaults write org.x.X11 wm_ffm -bool true
+
+# Enable Secure Keyboard Entry in Terminal.app
+# See: https://security.stackexchange.com/a/47786/8918
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
+# Disable the annoying line marks
+defaults write com.apple.Terminal ShowLineMarks -int 0
+
+###############################################################################
+# Messages                                                                    #
+###############################################################################
+
+# Disable automatic emoji substitution (i.e. use plain text smileys)
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
+
+# Disable smart quotes as it’s annoying for messages that contain code
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+
+# Disable continuous spell checking
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
+
+###############################################################################
+# Spotlight
+###############################################################################
+
+# echo "Hide Spotlight tray-icon (and subsequent helper)"
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+
+echo "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before."
+# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
+sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+
+echo "Change Spotlight indexing order and disable some search results"
+# Yosemite-specific search results (remove them if you are using OS X 10.9 or older):
+#   MENU_DEFINITION
+#   MENU_CONVERSION
+#   MENU_EXPRESSION
+#   MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
+#   MENU_WEBSEARCH             (send search queries to Apple)
+#   MENU_OTHER
+defaults write com.apple.spotlight orderedItems -array \
+  '{"enabled" = 1;"name" = "APPLICATIONS";}' \
+  '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+  '{"enabled" = 0;"name" = "DIRECTORIES";}' \
+  '{"enabled" = 0;"name" = "PDF";}' \
+  '{"enabled" = 0;"name" = "FONTS";}' \
+  '{"enabled" = 0;"name" = "DOCUMENTS";}' \
+  '{"enabled" = 0;"name" = "MESSAGES";}' \
+  '{"enabled" = 0;"name" = "CONTACT";}' \
+  '{"enabled" = 0;"name" = "EVENT_TODO";}' \
+  '{"enabled" = 0;"name" = "IMAGES";}' \
+  '{"enabled" = 0;"name" = "BOOKMARKS";}' \
+  '{"enabled" = 0;"name" = "MUSIC";}' \
+  '{"enabled" = 0;"name" = "MOVIES";}' \
+  '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+  '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+  '{"enabled" = 0;"name" = "SOURCE";}' \
+  '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+  '{"enabled" = 0;"name" = "MENU_OTHER";}' \
+  '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+  '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+  '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+  '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
+
+#echo "Load new settings before rebuilding the index"
+#killall mds > /dev/null 2>&1
+
+#echo "Make sure indexing is enabled for the main volume"
+#sudo mdutil -i on / > /dev/null
+
+#echo "Rebuild the index from scratch"
+#sudo mdutil -E / > /dev/null
+
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+
+#for app in "Activity Monitor" \
+#  "Address Book" \
+#  "Calendar" \
+#  "cfprefsd" \
+#  "Contacts" \
+#  "Dock" \
+#  "Finder" \
+#  "Mail" \
+#  "Messages" \
+#  "Photos" \
+#  "Safari" \
+#  "SystemUIServer" \
+#  "Terminal" \
+#  "iCal"; do
+#  killall "${app}" &> /dev/null
+# done
 echo "OSX preferences are set. Note that some of these changes require a logout/restart to take effect."
-
-###############################################################################
-# Install XCode from Mac App Store
-# https://github.com/argon/mas/releases
-###############################################################################
-
-echo "" && echo "Setting up XCode..." && echo ""
-
-echo "Download and expand mas-cli"
-curl -fsSL https://github.com/argon/mas/releases/download/v1.2.0/mas-cli.zip
-unzip mas-cli.zip
-
-echo "Sign-in to the Mac App Store"
-pretty_print "What is your Mac App Store login?"
-read mac_app_store_login
-pretty_print "What is your Mac App Store password?"
-read -s mac_app_store_password
-./mas signin $mac_app_store_login $mac_app_store_password
-
-echo "Install XCode"
-./mas install 497799835 # XCode
-
-echo "Accept the XCode license"
-sudo xcodebuild -license
-echo "Install XCode command line tools"
-xcode-select --install
-
-echo "Cleaning up mas-cli"
-rm mas-cli.zip
-rm mas
-echo "You should now install mas-cli via Homebrew."
-
-echo "XCode should now be installed."
