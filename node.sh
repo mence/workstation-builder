@@ -1,103 +1,177 @@
 #!/bin/bash
 
-# TODO: Replace `npm install -g` with `yarn global add` for faster install. Requires `brew install yarn` as prerequisite
+echo "Installing Node apps..."
+
+echo "Upgrade npm"
+npm install -g npm
+
+echo "Install versions of node"
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+nvm install 4.4
+nvm install stable
 
 # Development
-npm install -g hotel
-npm install -g npm-check
-npm install -g devtool
-npm install -g yo
-npm install -g jsome # https://github.com/Javascipt/Jsome
-npm install -g nodemon # https://github.com/remy/nodemon
-npm install -g typescript
-npm install -g git-recent
-npm install -g lebab # https://github.com/lebab/lebab
+yarn global add bower --prefix /usr/local
+yarn global add hotel --prefix /usr/local
+yarn global add npm-check --prefix /usr/local
+yarn global add devtool --prefix /usr/local
+yarn global add jsome --prefix /usr/local # https://github.com/Javascipt/Jsome
+yarn global add nodemon --prefix /usr/local # https://github.com/remy/nodemon
+yarn global add git-recent --prefix /usr/local
+yarn global add lebab --prefix /usr/local # https://github.com/lebab/lebab
+yarn global add flow-bin --prefix /usr/local
+yarn global add jquery
+yarn global add ntl
+
+# Yeoman
+yarn global add yo --prefix /usr/local
+
+## Yeoman Generators
+# yarn global add generator-webapp
+# yarn global add generator-react-server
+# yarn global add generator-react-static
 
 # React
-npm install -g create-react-app
-npm install -g jest-cli
-npm install -g react-native-ignite # https://github.com/infinitered/ignite
-npm install -g react-monocle # https://github.com/team-gryff/react-monocle
+yarn global add react --prefix /usr/local
+yarn global add react@16.0.0-alpha.6
+yarn global add create-react-app --prefix /usr/local
+yarn global add jest --prefix /usr/local
+yarn global add react-native
+yarn global add react-native-cli --prefix /usr/local
+yarn global add ignite-cli --prefix /usr/local # https://github.com/infinitered/ignite
+yarn global add react-monocle --prefix /usr/local # https://github.com/team-gryff/react-monocle
+
+# Typescript
+yarn global add typescript --prefix /usr/local
+yarn global add ts-jest --prefix /usr/local
+
+# Serverless
+yarn global add serverless --prefix /usr/local
+
+## Serverless plugins
+# yarn global add serverless-aws-documentation
+# yarn global add serverless-build-plugin
+# yarn global add serverless-coffeescript
+# yarn global add serverless-command-line-event-args
+# yarn global add serverless-crypt
+# yarn global add serverless-jest-plugin
+# yarn global add serverless-mocha-plugin
+# yarn global add serverless-offline
+# yarn global add serverless-dynamodb-local
+# yarn global add serverless-offline-scheduler
+# yarn global add serverless-plugin-aws-alerts
+# yarn global add serverless-plugin-browserify
+# yarn global add serverless-plugin-graphiql
+# yarn global add serverless-plugin-optimize
+# yarn global add serverless-plugin-package-dotenv-file
+# yarn global add serverless-plugin-webpack
+# yarn global add serverless-plugin-write-env-vars
+# yarn global add serverless-prune-plugin
+# yarn global add serverless-plugin-typescript
+# yarn global add serverless-webpack
 
 # Linters (also used in SublimeLinter)
-npm install -g eslint
-npm install -g babel-eslint
-npm install -g eslint-config-airbnb
-npm install -g eslint-plugin-flowtype
-npm install -g eslint-plugin-import
-npm install -g eslint-plugin-jsx-a11y
-npm install -g eslint-plugin-react
-npm install -g bootlint
-npm install -g coffeelint
-npm install -g csslint
-npm install -g htmlhint@latest
-npm install -g jshint
-npm install -g jsxhint
-npm install -g write-good
-npm install -g tslint # https://github.com/palantir/tslint
-npm install -g pug-lint
+yarn global add eslint --prefix /usr/local
+yarn global add babel-eslint
+yarn global add eslint-config-airbnb
+yarn global add eslint-plugin-flowtype
+yarn global add eslint-plugin-import
+yarn global add eslint-plugin-jsx-a11y
+yarn global add eslint-plugin-react
+yarn global add bootlint --prefix /usr/local
+yarn global add coffeelint --prefix /usr/local
+yarn global add csslint --prefix /usr/local
+yarn global add htmlhint@latest --prefix /usr/local
+yarn global add jshint --prefix /usr/local
+yarn global add jsxhint --prefix /usr/local
+yarn global add write-good --prefix /usr/local
+yarn global add pug-lint --prefix /usr/local # https://github.com/pugjs/pug-lint
+yarn global add tslint --prefix /usr/local # https://github.com/palantir/tslint
+yarn global add tslint-react --prefix /usr/local
+yarn global add tslint-eslint-rules --prefix /usr/local
+
+# textlint
+yarn global add textlint --prefix /usr/local
+## textlint rules
+# yarn global add textlint-rule-no-todo --prefix /usr/local
+# yarn global add textlint-rule-no-start-duplicated-conjunction --prefix /usr/local
+# yarn global add textlint-rule-max-number-of-lines --prefix /usr/local
+# yarn global add textlint-rule-max-comma --prefix /usr/local
+# yarn global add textlint-rule-no-exclamation-question-mark --prefix /usr/local
+# yarn global add textlint-rule-no-dead-link --prefix /usr/local
+# yarn global add textlint-rule-alex --prefix /usr/local
+# yarn global add textlint-rule-common-misspellings --prefix /usr/local
+# yarn global add textlint-rule-write-good --prefix /usr/local
+# yarn global add textlint-plugin-html --prefix /usr/local
 
 # Debugging
-npm install -g 0x # https://github.com/davidmarkclements/0x
-npm install -g node-inspector # https://github.com/node-inspector/node-inspector
-npm install -g iron-node # https://github.com/s-a/iron-node
-npm install -g jstrace # https://github.com/jstrace/jstrace
+yarn global add 0x --prefix /usr/local # https://github.com/davidmarkclements/0x
+yarn global add node-inspector --prefix /usr/local # https://github.com/node-inspector/node-inspector
+yarn global add iron-node --prefix /usr/local # https://github.com/s-a/iron-node
+yarn global add jstrace --prefix /usr/local # https://github.com/jstrace/jstrace
 
 # Productionizing
-npm install -g clean-css # https://github.com/jakubpawlowicz/clean-css
-npm install -g pm2 # https://github.com/Unitech/pm2
+yarn global add clean-css # https://github.com/jakubpawlowicz/clean-css
+yarn global add pm2 --prefix /usr/local # https://github.com/Unitech/pm2
 
 # Build
-npm install -g grunt-cli
-npm install -g gulp-cli
-npm install -g browserify
-npm install -g webpack
-npm install -g foreman
+yarn global add grunt-cli --prefix /usr/local
+yarn global add gulp-cli --prefix /usr/local
+yarn global add browserify --prefix /usr/local
+yarn global add webpack --prefix /usr/local
+yarn global add foreman --prefix /usr/local
 
 # Testing
-npm install -g jasmine-node
-npm install -g istanbul # https://github.com/gotwarlost/istanbul
-npm install -g nyc # https://github.com/bcoe/nyc
-npm install -g trevor # https://github.com/vdemedes/trevor
-npm install -g testen # https://github.com/egoist/testen - Alternative to trevor
-npm install -g ava # https://github.com/avajs/ava
-npm install -g mocha # http://mochajs.org/
-npm install -g phantomjs-prebuilt # https://github.com/Medium/phantomjs
-npm install -g wring # https://github.com/osener/wring
+yarn global add jasmine-node
+yarn global add jasmine-core
+yarn global add mocha --prefix /usr/local # http://mochajs.org/
+yarn global add cucumber --prefix /usr/local
+yarn global add cucumber@^1.3.0
+yarn global add karma
+yarn global add karma-cli
+yarn global add karma-coverage
+yarn global add karma-jasmine
+yarn global add karma-jasmine@0.1.0
+yarn global add karma-mocha
+yarn global add karma-cucumber-js
+yarn global add istanbul # https://github.com/gotwarlost/istanbul
+yarn global add nyc # https://github.com/bcoe/nyc
+yarn global add trevor # https://github.com/vdemedes/trevor
+yarn global add testen # https://github.com/egoist/testen - Alternative to trevor
+yarn global add ava # https://github.com/avajs/ava
+yarn global add phantomjs-prebuilt # https://github.com/Medium/phantomjs
+yarn global add wring # https://github.com/osener/wring
 
 # Module Development tools
-npm install -g autochecker
-npm install –g snyk # https://github.com/Snyk/snyk
-npm install -g nsp # https://github.com/nodesecurity/nsp
+yarn global add autochecker --prefix /usr/local
+yarn global add snyk --prefix /usr/local # https://github.com/Snyk/snyk
+yarn global add nsp --prefix /usr/local # https://github.com/nodesecurity/nsp
 
 # Utilities
-npm install -g mert # https://github.com/eggplanetio/mert
-npm install -g speed-test # https://github.com/sindresorhus/speed-test
-npm install -g vtop # https://github.com/MrRio/vtop
-npm install -g alex # https://github.com/wooorm/alex
-npm install -g iponmap # https://github.com/nogizhopaboroda/iponmap
-npm install -g ipify # https://github.com/sindresorhus/ipify
-npm install -g getmac # https://github.com/bevry/getmac
-npm install -g forever # https://github.com/foreverjs/forever
-npm install -g juliangruber/vipe # https://github.com/juliangruber/vipe/
-
-# mac-cli
-npm install -g mac-cli # https://github.com/guarinogabriel/mac-cli
-sh mac install:all # Install all mac-cli dependencies and integrated projects (dependences should be already done: brew, git, python/pip, pv)
-
-# Text
-npm install -g franc # https://github.com/wooorm/franc
-npm install -g superb # https://github.com/sindresorhus/superb
-npm install -g cat-names # https://github.com/sindresorhus/cat-names
-npm install -g dog-names # https://github.com/sindresorhus/dog-names
-npm install -g superheroes # https://github.com/sindresorhus/superheroes
-npm install -g supervillans # https://github.com/sindresorhus/supervillains
-npm install -g cool-ascii-faces # https://github.com/maxogden/cool-ascii-faces
-npm install -g cat-ascii-faces # https://github.com/melaniecebula/cat-ascii-faces
-
-# Hilarity
-npm install -g gifi # https://github.com/vdemedes/gifi
+yarn global add mert --prefix /usr/local # https://github.com/eggplanetio/mert
+yarn global add speed-test --prefix /usr/local # https://github.com/sindresorhus/speed-test
+yarn global add vtop --prefix /usr/local # https://github.com/MrRio/vtop
+yarn global add alex --prefix /usr/local # https://github.com/wooorm/alex
+yarn global add iponmap --prefix /usr/local # https://github.com/nogizhopaboroda/iponmap
+yarn global add ipify --prefix /usr/local # https://github.com/sindresorhus/ipify
+yarn global add getmac --prefix /usr/local # https://github.com/bevry/getmac
+yarn global add forever --prefix /usr/local # https://github.com/foreverjs/forever
+yarn global add juliangruber/vipe --prefix /usr/local # https://github.com/juliangruber/vipe/
 
 ### --- OTHER ---
 
 # npm install -g subdownloader # https://github.com/beatfreaker/subdownloader
+
+# Hilarity
+# npm install -g gifi # https://github.com/vdemedes/gifi
+
+# Text
+# npm install -g franc # https://github.com/wooorm/franc
+# npm install -g superb # https://github.com/sindresorhus/superb
+# npm install -g cat-names # https://github.com/sindresorhus/cat-names
+# npm install -g dog-names # https://github.com/sindresorhus/dog-names
+# npm install -g superheroes # https://github.com/sindresorhus/superheroes
+# npm install -g supervillans # https://github.com/sindresorhus/supervillains
+# npm install -g cool-ascii-faces # https://github.com/maxogden/cool-ascii-faces
+# npm install -g cat-ascii-faces # https://github.com/melaniecebula/cat-ascii-faces
