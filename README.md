@@ -1,6 +1,6 @@
 # Workstation Builder
 
-This is a basic shell script to build an macOS development environment from scratch.
+This is a series of shell scripts to build an macOS development environment from scratch.
 
 ## Requirements
 
@@ -12,7 +12,7 @@ Run `./setup.sh`
 
 ## Development
 
-Currently this script is built in Bash.
+Currently these scripts are built in Bash.
 
 Linting is done with [shellcheck](https://github.com/koalaman/shellcheck).
 
