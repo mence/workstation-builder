@@ -130,6 +130,7 @@ brew 'pv'
 brew 'cookiecutter' # https://github.com/audreyr/cookiecutter
 brew 'jid'
 brew 'jq'
+brew 'json-table'
 brew 'consul',
      args: [
        'with-web-ui'
@@ -245,6 +246,10 @@ brew 'dnsmasq',
      ]
 brew 'dark-mode' # Control the macOS dark mode from the command-line
 
+# Homebrew: Monitoring
+# brew 'metricbeat'
+# brew 'packetbeat'
+
 # Homebrew: Security
 brew 'mac-robber'
 brew 'spoof-mac'
@@ -254,6 +259,8 @@ brew 'ransomwhere'
 brew 'lockdown'
 brew 'kextviewer'
 brew 'dhs'
+brew 'bettercap'
+brew 'testssl'
 
 # Homebrew Shell Completion: https://github.com/Homebrew/homebrew-completions
 brew 'apm-bash-completion'
