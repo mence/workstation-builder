@@ -87,6 +87,7 @@ brew 'bash-completion'
 brew 'tmux'
 brew 'thefuck'
 brew 'cheat'
+brew 'fzf'
 
 # Homebrew: tldr
 tap 'tldr-pages/tldr'
