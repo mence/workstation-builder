@@ -150,7 +150,6 @@ yarn global add nsp --prefix /usr/local # https://github.com/nodesecurity/nsp
 
 # Utilities
 yarn global add mert --prefix /usr/local # https://github.com/eggplanetio/mert
-yarn global add speed-test --prefix /usr/local # https://github.com/sindresorhus/speed-test
 yarn global add vtop --prefix /usr/local # https://github.com/MrRio/vtop
 yarn global add alex --prefix /usr/local # https://github.com/wooorm/alex
 yarn global add iponmap --prefix /usr/local # https://github.com/nogizhopaboroda/iponmap
