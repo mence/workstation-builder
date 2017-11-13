@@ -250,6 +250,7 @@ brew 'dark-mode' # Control the macOS dark mode from the command-line
 # Homebrew: Monitoring
 # brew 'metricbeat'
 # brew 'packetbeat'
+brew 'prometheus'
 
 # Homebrew: Security
 brew 'mac-robber'
