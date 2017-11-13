@@ -269,9 +269,7 @@ brew 'apm-bash-completion'
 brew 'boot2docker-completion'
 brew 'brew-cask-completion'
 brew 'bundler-completion'
-# brew 'docker-completion' # sha mismatch
 brew 'docker-compose-completion'
-brew 'docker-machine-completion'
 brew 'gem-completion'
 brew 'grunt-completion'
 brew 'launchctl-completion'
@@ -450,7 +448,6 @@ cask 'ngrok'
 
 # Casks: Docker
 cask 'docker'
-# cask 'docker-toolbox' # Replaced by Docker for Mac: https://docs.docker.com/docker-for-mac/docker-toolbox/
 brew 'docker-clean'
 brew 'hadolint' # https://github.com/lukasmartinelli/hadolint
 # brew 'helios-solo' # https://github.com/spotify/helios
