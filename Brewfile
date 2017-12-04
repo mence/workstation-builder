@@ -24,6 +24,9 @@ tap 'caskroom/drivers'
 # Other Taps
 tap 'spotify/public'
 
+# Personal Tap
+tap 'mence/mence'
+
 # --- HOMEBREW CORE ---
 
 # Mac App Store Install
@@ -595,7 +598,7 @@ cask 'scansnap-manager-ix500'
 
 # Casks: QuickLook Extensions
 cask 'betterzipql'
-# cask 'cert-quicklook' # Dead
+cask 'cert-quicklook'
 cask 'epubquicklook'
 cask 'emin-webpquicklook'
 cask 'provisionql'
