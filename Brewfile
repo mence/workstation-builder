@@ -623,6 +623,8 @@ cask 'quicklook-pfm'
 cask 'qldds'
 cask 'qlrest'
 cask 'qlnetcdf'
+cask 'osirix-quicklook'
+casl 'qlcommonmark'
 
 # Casks: Fonts
 cask 'font-anonymous-pro'
