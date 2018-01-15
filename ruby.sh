@@ -48,6 +48,10 @@ gem install puppet
 
 # Utilities
 gem install video_transcoding # https://github.com/donmelton/video_transcoding
+# https://github.com/Chris911/iStats
+gem install iStats
+istats scan
+istats enable all
 
 # Linters (also used for SublimeLinter)
 gem install haml
