@@ -39,7 +39,7 @@ gem install bundler
 
 # Applications
 gem install friends # https://github.com/JacobEvelyn/friends
-gem install dashing # http://shopify.github.io/dashing/
+gem install smashing # https://github.com/Smashing/smashing
 
 # Development tools
 gem install github_changelog_generator # https://github.com/skywinder/github-changelog-generator
