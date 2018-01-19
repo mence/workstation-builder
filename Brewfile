@@ -700,7 +700,7 @@ cask 'font-work-sans'
 # brew 'brew-file'
 
 # Cakebrew GUI Homebrew manager
-# cask 'cakebrew' # TODO: certificate problem
+cask 'cakebrew'
 
 # --- OPTIONAL ---
 # https://github.com/EricChiang/pup
