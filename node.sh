@@ -23,6 +23,7 @@ yarn global add lebab --prefix /usr/local # https://github.com/lebab/lebab
 yarn global add flow-bin --prefix /usr/local
 yarn global add jquery
 yarn global add ntl
+npm install -g concurrently # https://github.com/kimmobrunfeldt/concurrently
 
 # Yeoman
 yarn global add yo --prefix /usr/local
