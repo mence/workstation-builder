@@ -567,6 +567,7 @@ cask 'vagrant-manager'
 cask 'beardedspice'
 cask 'etrecheck'
 cask 'paparazzi'
+cask 'namechanger'
 
 # Homebrew: LaTeX
 cask 'basictex'
