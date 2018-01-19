@@ -516,6 +516,7 @@ cask 'mailbutler'
 # Casks: Productivity
 cask 'nvalt' # Post install steps in post-cask-install.sh
 cask 'numi'
+cask 'typora'
 
 # Casks: Photography
 cask 'darktable'
