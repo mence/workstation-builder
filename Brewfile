@@ -454,6 +454,7 @@ cask 'docker'
 brew 'docker-clean'
 brew 'hadolint' # https://github.com/lukasmartinelli/hadolint
 # brew 'helios-solo' # https://github.com/spotify/helios
+brew 'kubectl'
 cask 'minikube' # https://github.com/kubernetes/minikube/releases
 cask 'osxfuse'
 tap 'datawire/blackbird'
