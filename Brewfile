@@ -250,6 +250,7 @@ brew 'dnsmasq',
        'with-libidn'
      ]
 brew 'dark-mode' # Control the macOS dark mode from the command-line
+brew 'pwgen'
 
 # Homebrew: Monitoring
 # brew 'metricbeat'
