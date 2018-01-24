@@ -578,6 +578,7 @@ cask 'beardedspice'
 cask 'etrecheck'
 cask 'paparazzi'
 cask 'namechanger'
+cask 'keka'
 
 # Homebrew: LaTeX
 cask 'basictex'
