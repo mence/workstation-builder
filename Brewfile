@@ -521,7 +521,7 @@ cask 'whatsapp'
 # Casks: Email
 cask 'nylas-mail'
 cask 'mailbutler'
-# cask 'airmail-beta' # TODO: SHA mismatch
+cask 'airmail-beta'
 
 # Casks: Productivity
 cask 'nvalt' # Post install steps in post-cask-install.sh
@@ -534,9 +534,9 @@ cask 'darktable'
 
 # Casks: Design
 cask 'noun-project'
-# cask 'adobe-photoshop-cc'
-# cask 'adobe-illustrator-cc'
-# cask 'adobe-indesign-cc'
+# cask 'adobe-photoshop-cc' # removed from Caskroom due to login requirement
+# cask 'adobe-illustrator-cc' # removed from Caskroom due to login requirement
+# cask 'adobe-indesign-cc' # removed from Caskroom due to login requirement
 
 # Casks: Taskbar Apps
 cask 'lastfm'
@@ -563,7 +563,7 @@ cask 'fluid'
 cask 'deeper'
 cask 'coconutbattery'
 cask 'crunch' # https://github.com/chrissimpkins/Crunch
-# cask 'knock' # TODO: SHA mismatch
+cask 'knock'
 cask 'duet'
 cask 'sequential'
 cask 'diskwave'
@@ -629,7 +629,7 @@ cask 'qlnetcdf'
 cask 'qlplayground'
 cask 'qlprettypatch'
 cask 'qlrest'
-cask 'qlstephen' # TODO: Download failed
+cask 'qlstephen'
 cask 'qlswift'
 cask 'qlvideo'
 cask 'quickgeojson'
