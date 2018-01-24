@@ -457,11 +457,17 @@ cask 'docker'
 brew 'docker-clean'
 brew 'hadolint' # https://github.com/lukasmartinelli/hadolint
 # brew 'helios-solo' # https://github.com/spotify/helios
-brew 'kubectl'
-cask 'minikube' # https://github.com/kubernetes/minikube/releases
 cask 'osxfuse'
 tap 'datawire/blackbird'
 brew 'datawire/blackbird/telepresence'
+
+# Casks: Kubernetes and Terraform
+brew 'terraform'
+brew 'kubectl'
+cask 'minikube' # https://github.com/kubernetes/minikube/releases
+brew 'kubernetes-helm'
+tap 'ksonnet/tap'
+brew 'ksonnet/tap/ks'
 
 # Casks: Git
 cask 'rowanj-gitx'
