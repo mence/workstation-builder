@@ -11,7 +11,6 @@ echo "Running post-Homebrew installation steps..."
 echo "Install Heroku Plugins"
 heroku plugins:install heroku-papertrail
 heroku plugins:install heroku-cli-addons
-
 heroku plugins:install heroku-accounts
 heroku plugins:install heroku-releases-retry
 heroku plugins:install heroku-ci
@@ -30,21 +29,23 @@ echo "Setting up iTerm 2 shell integration"
 curl -L https://iterm2.com/misc/install_shell_integration_and_utilities.sh | bash
 
 # zsh Package Managers
-# echo "Setting up zsh"
-# oh-my-zsh
-# https://github.com/robbyrussell/oh-my-zsh
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# oh-my-zsh - https://github.com/robbyrussell/oh-my-zsh
+# echo "Setting up oh-my-zsh"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # antigen
 # echo "Setting up antigen"
 # curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
 # source antigen.zsh
 
-# oh-my-fish
+# Fish Package Managers
+
+# oh-my-fish - https://github.com/oh-my-fish/oh-my-fish
 # echo "Setting up oh-my-fish"
-# https://github.com/oh-my-fish/oh-my-fish
-# curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install > install
-# fish install
+# curl -L https://get.oh-my.fish | fish
+# fundle - https://github.com/tuvistavie/fundle
+# echo "Setting up fundle"
+# curl -sfL https://git.io/fundle-install | fish
 
 # nvALT
 echo "Setting up nvALT"
