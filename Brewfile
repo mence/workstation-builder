@@ -389,7 +389,8 @@ cask 'totalterminal'
 
 # Casks: Depends on Java
 cask 'java6'
-cask 'java7'
+cask 'zulu7'
+cask 'java8'
 cask 'java'
 brew 'maven'
 tap 'jcgay/jcgay'
