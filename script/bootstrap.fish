@@ -1,0 +1,2 @@
+omf install
+omf update
