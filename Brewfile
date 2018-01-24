@@ -126,6 +126,7 @@ brew 'emacs',
 brew 'shellcheck'
 brew 'ansible'
 brew 'packer'
+brew 'packer-completion'
 brew 'httpie'
 brew 'sift'
 brew 'ssh-copy-id'
