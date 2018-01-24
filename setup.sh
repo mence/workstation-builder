@@ -57,3 +57,6 @@ read -pr "Press [Enter] key after switching Mac App Store to US account..."
 
 # Atom install
 ./atom.sh
+
+# Google Cloud install
+./gcloud.sh
