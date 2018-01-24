@@ -372,7 +372,7 @@ cask 'mkchromecast'
 cask 'statusfy'
 
 # Casks: Cloud Storage
-# cask 'dropbox' # TODO: already installed as part of GS install
+# cask 'dropbox' # TODO Install separately
 cask 'google-drive'
 cask 'box-sync'
 cask 'resilio-sync'
