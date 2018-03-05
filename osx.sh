@@ -164,12 +164,19 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 echo "Disable hibernation (speeds up entering sleep mode)"
 sudo pmset -a hibernatemode 0
 
-echo "Remove the sleep image file to save disk space"
-sudo rm /private/var/vm/sleepimage
-echo "Create a zero-byte file instead…"
-sudo touch /private/var/vm/sleepimage
-echo "…and make sure it can’t be rewritten"
-sudo chflags uchg /private/var/vm/sleepimage
+# Sleep image is now under SIP control: https://github.com/mathiasbynens/dotfiles/issues/811
+# > reboot into Recovery mode
+# > open terminal
+# > type: csrutil disable
+# > reboot
+# > try to remove the image again with SIP disabled
+#
+# echo "Remove the sleep image file to save disk space"
+# sudo rm /private/var/vm/sleepimage
+# echo "Create a zero-byte file instead…"
+# sudo touch /private/var/vm/sleepimage
+# echo "…and make sure it can’t be rewritten"
+# sudo chflags uchg /private/var/vm/sleepimage
 
 #echo "Disable the sudden motion sensor as it’s not useful for SSDs"
 #sudo pmset -a sms 0
