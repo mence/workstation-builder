@@ -34,7 +34,7 @@ brew 'git'
 brew 'hub'
 brew 'curl'
 brew 'openssl'
-brew 'homebrew/dupes/grep'
+brew 'grep'
 brew 'wget',
      args: [
        'with-gpgme',
