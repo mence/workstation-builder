@@ -641,7 +641,7 @@ cask 'quicklook-pfm'
 cask 'quicklookapk'
 cask 'quicklookase'
 cask 'ttscoff-mmd-quicklook'
-casl 'qlcommonmark'
+cask 'qlcommonmark'
 
 # Casks: Fonts
 cask 'font-anonymous-pro'
