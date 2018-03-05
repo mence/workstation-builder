@@ -13,9 +13,6 @@ read -pr "Press [Enter] key after installing Xcode manually..."
 # Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Install Brewfile
-brew tap Homebrew/bundle
-
 # Set up Homebrew options
 export HOMEBREW_CASK_OPTS="--verbose"
 
