@@ -356,7 +356,7 @@ cask 'lastpass'
 # Casks: Entertainment
 cask 'spotify'
 cask 'sonos'
-cask 'mkchromecast'
+# cask 'mkchromecast'
 cask 'statusfy'
 
 # Casks: Cloud Storage
