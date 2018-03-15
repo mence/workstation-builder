@@ -246,6 +246,16 @@ brew 'dnsmasq',
      ]
 brew 'dark-mode' # Control the macOS dark mode from the command-line
 brew 'pwgen'
+brew 'graphviz',
+     args: [
+       'with-app',
+       'with-bindings',
+       'with-freetype',
+       'with-gts',
+       'with-librsvg',
+       'with-pango',
+       'with-x11'
+     ]
 
 # Homebrew: Monitoring
 # brew 'metricbeat'
