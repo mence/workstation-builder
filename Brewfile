@@ -466,6 +466,8 @@ cask 'minikube' # https://github.com/kubernetes/minikube/releases
 brew 'kubernetes-helm'
 tap 'ksonnet/tap'
 brew 'ksonnet/tap/ks'
+brew 'kube-ps1' # https://github.com/jonmosco/kube-ps1
+brew 'kubectx'
 
 # Casks: Git
 cask 'rowanj-gitx'
