@@ -168,7 +168,7 @@ brew 'mysql', restart_service: :changed # TODO: post-setup steps
 brew 'mycli'
 brew 'postgresql', restart_service: :changed # TODO: post-setup steps
 brew 'sqlite'
-brew 'memcached', restart_service: :changed
+# brew 'memcached', restart_service: :changed
 brew 'mongodb', restart_service: :changed
 brew 'redis'
 brew 'cockroach'
@@ -218,7 +218,7 @@ brew 'innotop'
 brew 'mytop'
 brew 'jnettop'
 brew 'libgtop'
-brew 'memcache-top'
+# brew 'memcache-top'
 # brew 'sqtop' # Display information about active connections for a Squid proxy
 
 # Homebrew: Cloud Services
