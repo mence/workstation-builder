@@ -255,7 +255,8 @@ brew 'graphviz',
        'with-librsvg',
        'with-pango',
        'with-x11'
-     ]
+     ],
+brew 'progress' # previously known as cv
 
 # Homebrew: Monitoring
 # brew 'metricbeat'
