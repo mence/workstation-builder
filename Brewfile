@@ -220,6 +220,7 @@ brew 'jnettop'
 brew 'libgtop'
 # brew 'memcache-top'
 # brew 'sqtop' # Display information about active connections for a Squid proxy
+brew 'pg_top'
 
 # Homebrew: Cloud Services
 brew 'awscli'
