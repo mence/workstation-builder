@@ -17,6 +17,7 @@ rvm install 1.9.3
 rvm install 2.0.0
 rvm install 2.2
 rvm install 2.2.1
+rvm install 2.2.2
 rvm install 2.2.7
 rvm install 2.3.0
 rvm install 2.3.1
