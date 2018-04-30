@@ -373,7 +373,8 @@ cask 'statusfy'
 
 # Casks: Cloud Storage
 # cask 'dropbox' # TODO Install separately
-cask 'google-drive'
+cask 'google-backup-and-sync' # replaces Google Drive for consumers
+cask 'google-drive-file-stream' # replaces Google Drive for enterprise
 cask 'box-sync'
 cask 'resilio-sync'
 cask 'amazon-drive'
