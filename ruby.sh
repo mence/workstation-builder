@@ -24,6 +24,7 @@ rvm install 2.3.1
 rvm install 2.4.0
 rvm install 2.4.1
 rvm install 2.4.2
+rvm install 2.5.1
 
 rvm docs generate-ri
 rvm rvmrc warning ignore allGemfiles
@@ -34,6 +35,10 @@ rvm osx-ssl-certs update all
 rvm rubygems latest
 
 rvm use system --default
+echo "Setting default as system ruby"
+
+# Gems
+echo "Installing gems"
 
 # Core
 gem install bundler
