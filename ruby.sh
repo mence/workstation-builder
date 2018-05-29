@@ -34,35 +34,36 @@ rvm reload
 rvm osx-ssl-certs update all
 rvm rubygems latest
 
-rvm use system --default
 echo "Setting default as system ruby"
+rvm use system --default
 
 # Gems
-echo "Installing gems"
+echo "Installing gems using rvm @global to allow all gemsets to have them"
 
 # Core
-gem install bundler
+rvm @global do gem install bundler
 
 # Applications
-gem install friends # https://github.com/JacobEvelyn/friends
-gem install smashing # https://github.com/Smashing/smashing
+rvm @global do gem install friends # https://github.com/JacobEvelyn/friends
+rvm @global do gem install smashing # https://github.com/Smashing/smashing
 
 # Development tools
-gem install github_changelog_generator # https://github.com/skywinder/github-changelog-generator
-gem install foreman # https://github.com/ddollar/foreman
-gem install puppet
+rvm @global do gem install github_changelog_generator # https://github.com/skywinder/github-changelog-generator
+rvm @global do gem install foreman # https://github.com/ddollar/foreman
+rvm @global do gem install puppet
 
 # Utilities
-gem install video_transcoding # https://github.com/donmelton/video_transcoding
+rvm @global do gem install video_transcoding # https://github.com/donmelton/video_transcoding
 # https://github.com/Chris911/iStats
-gem install iStats
+rvm @global do gem install iStats
 istats scan
 istats enable all
 
 # Linters (also used for SublimeLinter)
-gem install haml
-gem install mdl
-gem install rubocop # https://github.com/bbatsov/rubocop
-gem install scss_lint
-gem install sqlint
-gem install foodcritic # http://www.foodcritic.io/
+rvm @global do gem install haml
+rvm @global do gem install mdl
+rvm @global do gem install rubocop # https://github.com/bbatsov/rubocop
+rvm @global do gem install scss_lint
+rvm @global do gem install sqlint
+rvm @global do gem install foodcritic # http://www.foodcritic.io/
+rvm @global do gem install puppet-lint # http://puppet-lint.com/
