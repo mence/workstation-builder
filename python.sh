@@ -46,7 +46,8 @@ sudo pip install https://github.com/plainas/tq/zipball/stable
 # Development
 pip install cookiecutter # https://github.com/audreyr/cookiecutter
 pip install requests: # http://docs.python-requests.org/en/latest/
-pip install Flask # http://flask.pocoo.org/
+pip install flask # http://flask.pocoo.org/
+pip install gixy # https://github.com/yandex/gixy
 
 # Testing
 pip3 install trypackage # https://github.com/timofurrer/try
@@ -86,5 +87,6 @@ pip install docker-utils # https://github.com/andymckay/docker-utils
 pip install dpxdt # https://github.com/bslatkin/dpxdt
 
 # Linters (also used in SublimeLinter)
-pip3 install pyyaml
-pip3 install pep8
+pip3 install yamllint
+# pip3 install pep8
+pip install pycodestyle # https://github.com/SublimeLinter/SublimeLinter-pycodestyle
