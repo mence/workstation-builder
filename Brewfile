@@ -41,16 +41,8 @@ brew 'wget',
        'with-libmetalink',
        'with-pcre'
      ]
-brew 'python',
-     args: [
-       'with-sphinx-doc',
-       'with-tcl-tk'
-     ]
-brew 'python3',
-     args: [
-       'with-sphinx-doc',
-       'with-tcl-tk'
-     ]
+# brew 'python'
+brew 'python@2' # only use Python 2
 brew 'gcc'
 brew 'gpg2',
      args: [
@@ -484,10 +476,11 @@ brew 'luajit'
 brew 'vim',
      args: [
        'with-client-server',
+       'with-gettext'
        'with-lua',
        'with-luajit',
        'with-override-system-vi',
-       'with-tcl'
+       'with-python@2'
      ]
 # brew 'vundle' # Alternative package manager for Vim
 cask 'macvim'
