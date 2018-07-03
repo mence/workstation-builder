@@ -446,7 +446,7 @@ cask 'insomnia'
 cask 'ngrok'
 
 # Casks: Docker
-cask 'docker'
+cask 'docker-edge'
 brew 'docker-clean'
 brew 'hadolint' # https://github.com/lukasmartinelli/hadolint
 # brew 'helios-solo' # https://github.com/spotify/helios
