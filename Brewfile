@@ -463,6 +463,8 @@ tap 'ksonnet/tap'
 brew 'ksonnet/tap/ks'
 brew 'kube-ps1' # https://github.com/jonmosco/kube-ps1
 brew 'kubectx'
+tap 'wata727/tflint'
+brew 'tflint'
 
 # Casks: Git
 cask 'rowanj-gitx'
