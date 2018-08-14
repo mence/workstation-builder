@@ -78,6 +78,7 @@ brew 'tmux'
 brew 'thefuck'
 brew 'cheat'
 brew 'fzf'
+brew 'hh'
 
 # Homebrew: tldr
 tap 'tldr-pages/tldr'
