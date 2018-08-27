@@ -531,6 +531,7 @@ cask 'typora'
 # Casks: Photography
 cask 'darktable'
 # cask adobe-photoshop-lightroom
+cask 'digikam'
 
 # Casks: Design
 cask 'noun-project'
