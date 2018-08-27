@@ -102,6 +102,7 @@ brew 'mobile-shell'
 # Homebrew: git
 brew 'git-extras'
 brew 'git-lfs'
+brew 'git-quick-stats'
 
 # Homebrew: Development
 brew 'entr'
