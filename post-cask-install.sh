@@ -59,6 +59,11 @@ echo "Setting up vim addons"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Terraform
+terraform -install-autocomplete
+
+# ---
+
 # macos dotfiles
 # https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
