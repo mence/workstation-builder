@@ -548,7 +548,7 @@ cask 'bartender'
 cask 'caffeine'
 cask 'flux'
 cask 'yujitach-menumeters'
-cask 'istat-menus'
+cask 'istat-menus5'
 cask 'tripmode'
 
 # Casks: Utilities
