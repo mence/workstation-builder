@@ -6,6 +6,7 @@ gcloud installation
 gcloud components update
 gcloud components install beta
 gcloud components install kubectl
+gcloud components install alpha
 
 gcloud auth login
 gcloud auth application-default login
