@@ -50,6 +50,7 @@ brew 'gpg2',
        'with-gpgsplit',
        'with-readline'
      ]
+brew 'bat'
 
 # Caskroom: Dependencies
 cask 'xquartz'
