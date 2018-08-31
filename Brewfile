@@ -254,6 +254,7 @@ brew 'graphviz',
        'with-x11'
      ],
 brew 'progress' # previously known as cv
+brew 'noti' # trigger a macOS notification
 
 # Homebrew: Monitoring
 # brew 'metricbeat'
