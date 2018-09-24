@@ -208,6 +208,7 @@ brew 'cppcheck'
 
 # Homebrew: top viewers
 brew 'htop'
+brew 'glances'
 brew 'iftop' # TODO: post-setup steps
 brew 'apachetop'
 brew 'ctop'
