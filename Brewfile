@@ -424,9 +424,12 @@ cask 'datagrip'
 # cask 'datagrip-eap' # EAP is the Beta
 cask 'dbeaver-community'
 cask 'brackets'
-cask 'graphql-ide'
 cask 'racket'
 cask 'visual-studio-code'
+
+# Casks: Graph QL
+cask 'graphql-ide'
+cask 'graphql-playground'
 
 # Casks: Shells
 cask 'fish'
