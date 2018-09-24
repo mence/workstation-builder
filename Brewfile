@@ -220,6 +220,7 @@ brew 'libgtop'
 # brew 'memcache-top'
 # brew 'sqtop' # Display information about active connections for a Squid proxy
 brew 'pg_top'
+brew 'ncdu'
 
 # Homebrew: Cloud Services
 brew 'awscli'
@@ -259,6 +260,7 @@ brew 'graphviz',
      ],
 brew 'progress' # previously known as cv
 brew 'noti' # trigger a macOS notification
+brew 'fasd' # fast directory listing / jumping
 
 # Homebrew: Monitoring
 # brew 'metricbeat'
