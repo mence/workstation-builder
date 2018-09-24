@@ -108,6 +108,7 @@ brew 'git-quick-stats'
 # Homebrew: Development
 brew 'entr'
 brew 'cloc'
+brew 'tokei' # a better cloc
 brew 'emacs',
      args: [
        'with-cocoa',
