@@ -125,7 +125,9 @@ brew 'prettyping'
 brew 'pv'
 brew 'cookiecutter' # https://github.com/audreyr/cookiecutter
 brew 'jid'
-brew 'jq'
+brew 'jq' # parse JSON at command line
+brew 'pup' # parse HTML at command line
+brew 'xsv' # parse CSV at command line
 brew 'json-table'
 brew 'consul',
      args: [
