@@ -334,6 +334,15 @@ brew 'gist'
 brew 'gifsicle'
 brew 'vbindiff'
 
+# Homebrew: PDF Utilities
+brew 'pdfgrep' # https://pdfgrep.org/
+brew 'pdfcrack' # https://pdfcrack.sourceforge.io/
+brew 'diff-pdf' # https://vslavik.github.io/diff-pdf/
+brew 'djvu2pdf' # http://0x2a.at/s/projects/djvu2pdf
+brew 'ocrmypdf' # https://github.com/jbarlow83/OCRmyPDF
+brew 'pdf-redact-tools' # https://github.com/firstlookmedia/pdf-redact-tools
+brew 'pdfsandwich' # http://www.tobias-elze.de/pdfsandwich/
+
 # Homebrew: Productivity
 brew 'todo-txt'
 # Requires Day One. Post-install sync: http://jrnl.sh/advanced.html
