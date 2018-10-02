@@ -489,6 +489,7 @@ brew 'kube-ps1' # https://github.com/jonmosco/kube-ps1
 brew 'kubectx'
 tap 'wata727/tflint'
 brew 'tflint'
+brew 'terraform_landscape'
 
 # Casks: Git
 cask 'rowanj-gitx'
