@@ -90,3 +90,6 @@ pip install dpxdt # https://github.com/bslatkin/dpxdt
 pip3 install yamllint
 # pip3 install pep8
 pip install pycodestyle # https://github.com/SublimeLinter/SublimeLinter-pycodestyle
+
+# Downloads
+pip3 install xkcd-dl # https://github.com/tasdikrahman/xkcd-dl
