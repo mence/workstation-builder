@@ -262,6 +262,7 @@ brew 'graphviz',
 brew 'progress' # previously known as cv
 brew 'noti' # trigger a macOS notification
 brew 'fasd' # fast directory listing / jumping
+brew 'wakatime-cli' # command line access to wakatime developer time tracking
 
 # Homebrew: Monitoring
 # brew 'metricbeat'
