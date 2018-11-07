@@ -1,0 +1,5 @@
+# This file is for OSX Mojave specific applications
+cask_args appdir: '/Applications'
+
+# Casks: Utilties
+cask 'nocturnal'
