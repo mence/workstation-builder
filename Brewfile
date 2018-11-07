@@ -625,11 +625,15 @@ brew 'latexml'
 
 # Casks: Screensavers
 cask 'aerial'
-cask 'save-hollywood'
+cask 'brooklyn'
+cask 'developerexcuses'
+cask 'epoch-flip-clock'
 cask 'fliqlo'
-cask 'padbury-clock'
-cask 'pongsaver'
 cask 'google-trends'
+cask 'padbury-clock'
+cask 'polar-clock'
+cask 'pongsaver'
+cask 'save-hollywood'
 
 # Casks: Relax
 cask 'steam'
