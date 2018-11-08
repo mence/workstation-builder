@@ -525,8 +525,7 @@ cask 'google-earth'
 # Casks: Browsers
 cask 'google-chrome'
 cask 'google-chrome-canary'
-cask 'chromium'
-# cask 'freesmug-chromium' # Alternate pre-compiled build
+cask 'eloston-chromium'
 cask 'firefox'
 cask 'opera'
 cask 'brave'
