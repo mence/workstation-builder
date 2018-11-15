@@ -91,6 +91,10 @@ echo "Disable Chrome 69 automatic login and sync"
 defaults write com.google.Chrome SyncDisabled -bool true
 defaults write com.google.Chrome RestrictSigninToPattern -string ".*@example.com"
 
+# http://www.reecefowell.com/2012/11/16/ksfetch-annoyance-on-mac-os-x-10-8-ml-with-hands-off-or-little-snitch-firewall/
+echo "Change Google Updater to only check once a week for updates"
+defaults write com.google.Keystone.Agent checkInterval 4233600
+
 ###############################################################################
 echo "Configuring iTerm 2"
 ###############################################################################
