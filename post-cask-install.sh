@@ -23,6 +23,8 @@ heroku plugins:install heroku-cli-exec
 heroku plugins:install heroku-cli-oauth
 heroku plugins:install heroku-pg-extras
 heroku plugins:install heroku-repo
+echo "Set up Heroku autocomplete"
+heroku autocomplete
 
 # iTerm2 shell integration
 echo "Setting up iTerm 2 shell integration"
