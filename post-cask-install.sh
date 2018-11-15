@@ -62,6 +62,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Terraform
+# https://www.terraform.io/docs/commands/index.html
+echo "Set up Terraform autocomplete"
 terraform -install-autocomplete
 
 # ---
