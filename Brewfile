@@ -467,6 +467,7 @@ cask 'sequel-pro'
 cask 'wireshark'
 cask 'little-snitch'
 cask 'charles'
+# cask 'surge' # Alternative to charles
 cask 'postman'
 cask 'angry-ip-scanner'
 cask 'insomnia'
