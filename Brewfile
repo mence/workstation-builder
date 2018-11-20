@@ -437,6 +437,7 @@ cask 'dbeaver-community'
 cask 'brackets'
 cask 'racket'
 cask 'visual-studio-code'
+# cask 'vscodium' # Alternative non-MS branded VS Code
 
 # Casks: Graph QL
 cask 'graphql-ide'
