@@ -657,9 +657,9 @@ cask 'kindle'
 cask 'scansnap-manager-ix500'
 
 # Casks: QuickLook Extensions
-cask 'betterzipql'
+cask 'mence/mence/betterzipql'
+cask 'mence/mence/cert-quicklook'
 cask 'brushviewql'
-cask 'cert-quicklook'
 cask 'emin-webpquicklook'
 cask 'epubquicklook'
 cask 'gltfquicklook'
