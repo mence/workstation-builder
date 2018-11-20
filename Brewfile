@@ -275,6 +275,7 @@ brew 'spoof-mac'
 brew 'bettercap'
 brew 'testssl'
 cask 'metasploit'
+cask 'lockrattler'
 
 # Homebrew Shell Completion: https://github.com/Homebrew/homebrew-completions
 brew 'apm-bash-completion'
