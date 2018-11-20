@@ -516,8 +516,9 @@ brew 'vim',
 # brew 'vundle' # Alternative package manager for Vim
 cask 'macvim'
 
-# Casks: Machine Learning
+# Casks: Data Science and Machine Learning
 cask 'netron'
+cask 'orange'
 
 # Casks: Google
 cask 'google-photos-backup'
