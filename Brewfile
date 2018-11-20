@@ -547,6 +547,7 @@ cask 'franz'
 cask 'yakyak'
 cask 'goofy'
 cask 'whatsapp'
+cask 'whalebird' # Mastodon client
 
 # Casks: Email
 cask 'nylas-mail'
