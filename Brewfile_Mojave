@@ -2,4 +2,5 @@
 cask_args appdir: '/Applications'
 
 # Casks: Utilties
-cask 'nocturnal'
+cask 'nocturnal' # toggle dark mode
+cask 'gray' # set per-app dark mode
