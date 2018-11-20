@@ -571,6 +571,9 @@ cask 'noun-project'
 # cask 'adobe-illustrator-cc' # removed from Caskroom due to login requirement
 # cask 'adobe-indesign-cc' # removed from Caskroom due to login requirement
 
+# Casks: Engineering
+cask 'dwgsee'
+
 # Casks: Taskbar Apps
 cask 'lastfm'
 cask 'rescuetime'
