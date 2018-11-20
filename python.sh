@@ -76,6 +76,7 @@ pip install pygments # http://pygments.org/
 
 # Random
 pip install twitter_markov # https://github.com/fitnr/twitter_markov
+pip install rtv # Command-line Reddit client
 
 # Cloud (AWS/etc)
 pip install aws-shell # https://github.com/awslabs/aws-shell
