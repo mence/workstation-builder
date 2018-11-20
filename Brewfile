@@ -563,6 +563,7 @@ cask 'typora'
 cask 'darktable'
 # cask adobe-photoshop-lightroom
 cask 'digikam'
+# cask 'powerphotos' # Helps manage Apple Photos
 
 # Casks: Design
 cask 'noun-project'
