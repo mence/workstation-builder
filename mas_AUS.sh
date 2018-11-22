@@ -2,40 +2,34 @@
 
 echo "Installing Mac App Store Applications in Australian account..."
 
-# 1Password
-mas install 443987910
+# Password Managers
+mas install 443987910 # 1Password
+mas install 324613447 # LastPass
 
-# Evernote
-mas install 406056744
+# Productivity
+mas install 406056744 # Evernote
+# mas install 422304217 # Day One Classic
 
-# Growl
-mas install 467939042
-# HardwareGrowler
-mas install 475260933
+# Utilities
+mas install 441258766 # Magnet
+mas install 467939042 # Growl
+mas install 475260933 # HardwareGrowler
+mas install 937984704 # Amphetamine
+mas install 451444120 # Memory Clean
+echo "Remember to restore purchase inside Memory Clean"
 
-# Day One Classic
-# mas install 422304217
+# Developer
+mas install 603117688 # CCMenu
 
-# Memory Clean - Monitor and Free Up Memory
-mas install 451444120
+# Network
+mas install 715768417 # Microsoft Remote Desktop
 
-# Microsoft Remote Desktop
-mas install 715768417
-
-# CCMenu
-mas install 603117688
-
-# Telegram
-mas install 747648890
+# Communications
+mas install 747648890 # Telegram
 
 # Apple Things
-## Keynote
-mas install 409183694
-## Pages
-mas install 409201541
-## Numbers
-mas install 409203825
-## iMovie
-mas install 408981434
-## GarageBand
-mas install 682658836
+mas install 409183694 # Keynote
+mas install 409201541 # Pages
+mas install 409203825 # Numbers
+mas install 408981434 # iMovie
+mas install 682658836 # GarageBand

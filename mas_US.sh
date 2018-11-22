@@ -2,37 +2,24 @@
 
 echo "Installing Mac App Store Applications in US account..."
 
-# Twitter
-mas install 409789998
-# TweetDeck by Twitter
-mas install 485812721
+# Productivity
+mas install 974971992 # Alternote
+mas install 961632517 # Be Focused Pro
+mas install 873245660 # Spillio
+mas install 928871589 # Noizio
+mas install 639968404 # Parcel
+mas install 572688855 # Todoist
 
-# GrowlTunes
-mas install 499190094
+# Developer
+mas install 890031187 # Marked 2
 
-# WiFi Explorer
-mas install 494803304
+# Social Media
+mas install 409789998 # Twitter
+mas install 485812721 # TweetDeck by Twitter
 
-# DaisyDisk
-mas install 411643860
+# Utilities
+mas install 499190094 # GrowlTunes
+mas install 411643860 # DaisyDisk
 
-# Reeder 3
-# mas install 880001334 # not actually purchased!
-
-# Day One 
-# mas install 1055511498 # not actually purchased!
-
-# Alternote — the Beautiful Note-taking App for Evernote
-mas install 974971992
-
-# Be Focused Pro - Focus Timer & Goal Tracker
-mas install 961632517
-
-# Spillio
-mas install 873245660
-
-# Marked 2
-mas install 890031187
-
-# Noizio
-mas install 928871589
+# Network
+mas install 494803304 # WiFi Explorer
