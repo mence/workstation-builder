@@ -8,7 +8,6 @@ npm install -g npm
 echo "Install versions of node"
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
-nvm install 4.4
 nvm install stable
 
 # Development
@@ -23,7 +22,7 @@ yarn global add lebab --prefix /usr/local # https://github.com/lebab/lebab
 yarn global add flow-bin --prefix /usr/local
 yarn global add jquery
 yarn global add ntl
-npm install -g concurrently # https://github.com/kimmobrunfeldt/concurrently
+yarn global add concurrently # https://github.com/kimmobrunfeldt/concurrently
 
 # Yeoman
 yarn global add yo --prefix /usr/local
@@ -130,7 +129,7 @@ yarn global add mocha --prefix /usr/local # http://mochajs.org/
 yarn global add cucumber --prefix /usr/local
 yarn global add cucumber@^1.3.0
 yarn global add karma
-yarn global add karma-cli
+yarn global add karma-cli --prefix /usr/local
 yarn global add karma-coverage
 yarn global add karma-jasmine
 yarn global add karma-jasmine@0.1.0
