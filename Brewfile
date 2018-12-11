@@ -190,6 +190,7 @@ brew 'node'
 brew 'nvm'
 brew 'flow'
 brew 'yarn'
+brew 'typescript'
 
 # Homebrew: Python
 brew 'autoenv'
