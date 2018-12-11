@@ -207,6 +207,11 @@ brew 'swiftlint'
 # Homebrew: C++
 brew 'cppcheck'
 
+# Homebrew: Rust
+brew 'rust'
+brew 'rustc-completion'
+brew 'cargo-completion'
+
 # Homebrew: top viewers
 brew 'htop'
 brew 'glances'
