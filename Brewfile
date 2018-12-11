@@ -282,6 +282,7 @@ brew 'bettercap'
 brew 'testssl'
 cask 'metasploit'
 cask 'lockrattler'
+brew 'aircrack-ng'
 
 # Homebrew Shell Completion: https://github.com/Homebrew/homebrew-completions
 brew 'apm-bash-completion'
