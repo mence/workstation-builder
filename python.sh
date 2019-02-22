@@ -28,7 +28,8 @@ pip install waybackpack
 #pip install voltron
 
 # tq: https://github.com/plainas/tq
-sudo pip install https://github.com/plainas/tq/zipball/stable
+sudo pip3 install --upgrade html5lib==1.0b8
+sudo pip3 install https://github.com/plainas/tq/zipball/stable
 
 # Development
 pip install cookiecutter # https://github.com/audreyr/cookiecutter
