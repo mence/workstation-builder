@@ -13,26 +13,13 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # pyenv installs: https://github.com/yyuu/pyenv
 echo "Install all the Python versions we need"
+pyenv install 3.7.2 --verbose
 pyenv install 3.5.0 --verbose
 pyenv install 3.4.3 --verbose
 pyenv install 3.3.6 --verbose
 pyenv install 3.2.6 --verbose
 pyenv install 2.7.10 --verbose
 pyenv install 2.6.9 --verbose
-
-# pyenv plugins
-# pyenv-virtualenv: https://github.com/yyuu/pyenv-virtualenv
-# echo "Install pyenv-virtualenv"
-# brew install pyenv-virtualenv # Moved to Brewfile
-# echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile # TODO: Move to .dotfiles
-
-# pyenv-virtualenvwrapper: https://github.com/yyuu/pyenv-virtualenvwrapper
-# echo "Install pyenv-virtualenvwrapper"
-# brew install pyenv-virtualenvwrapper
-# TODO: Add to dotfiles: export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-
-# Add Autoenv to bashrc
-# echo 'source /usr/local/opt/autoenv/activate.sh' >> ~/.bashrc
 
 # --- GENERAL ---
 
