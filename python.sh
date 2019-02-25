@@ -13,13 +13,13 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # pyenv installs: https://github.com/yyuu/pyenv
 echo "Install all the Python versions we need"
-pyenv install 3.7.2 --verbose
-pyenv install 3.5.0 --verbose
-pyenv install 3.4.3 --verbose
-pyenv install 3.3.6 --verbose
-pyenv install 3.2.6 --verbose
-pyenv install 2.7.10 --verbose
-pyenv install 2.6.9 --verbose
+echo "Installing Python 3.7.2..." && pyenv install 3.7.2 --verbose
+echo "Installing Python 3.5.0..." && pyenv install 3.5.0 --verbose
+echo "Installing Python 3.4.3..." && pyenv install 3.4.3 --verbose
+echo "Installing Python 3.3.6..." && pyenv install 3.3.6 --verbose
+echo "Installing Python 3.2.6..." && pyenv install 3.2.6 --verbose
+echo "Installing Python 2.7.10..." && pyenv install 2.7.10 --verbose
+echo "Installing Python 2.6.9..." && pyenv install 2.6.9 --verbose
 
 # --- GENERAL ---
 
