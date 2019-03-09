@@ -157,6 +157,9 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 echo "Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+echo "Remove and disable the upgrade Mac OS notification"
+sudo mv /Library/Bundles/OSXNotification.bundle ~/Documents/ && softwareupdate --ignore macOSInstallerNotification_GM
+
 ###############################################################################
 # SSD-specific tweaks
 ###############################################################################
