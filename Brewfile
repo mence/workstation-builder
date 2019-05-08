@@ -142,6 +142,7 @@ brew 'caddy'
 
 # Homebrew: Network
 brew 'speedtest_cli'
+brew 'httpstat' # better curl statistics
 
 # Homebrew: ctags (https://github.com/universal-ctags/ctags)
 tap 'universal-ctags/universal-ctags'
