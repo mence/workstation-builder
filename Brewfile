@@ -358,6 +358,8 @@ brew 'pdfsandwich' # http://www.tobias-elze.de/pdfsandwich/
 brew 'todo-txt'
 # Requires Day One. Post-install sync: http://jrnl.sh/advanced.html
 brew 'jrnl' # https://github.com/maebert/jrnl
+tap 'sachaos/todoist'
+brew 'todoist' # Todoist CLI Client: https://github.com/sachaos/todoist
 
 # Homebrew: Blogs
 brew 'hugo'
