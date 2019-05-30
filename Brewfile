@@ -511,6 +511,7 @@ cask 'rowanj-gitx'
 cask 'tower'
 # cask 'tower-beta'
 cask 'gitkraken'
+cask 'fork'
 
 # Homebrew: Vim
 brew 'lua', args: ['with-completion']
