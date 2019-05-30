@@ -636,6 +636,7 @@ cask 'ransomwhere'
 cask 'lockdown'
 cask 'kextviewr'
 cask 'dhs'
+cask 'muzzle'
 
 # Homebrew: LaTeX
 cask 'basictex'
