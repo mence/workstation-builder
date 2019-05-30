@@ -43,7 +43,7 @@ yarn global add ignite-cli --prefix /usr/local # https://github.com/infinitered/
 yarn global add react-monocle --prefix /usr/local # https://github.com/team-gryff/react-monocle
 
 # Typescript
-yarn global add typescript --prefix /usr/local
+# yarn global add typescript --prefix /usr/local # Now installed via Homebrew
 yarn global add ts-jest --prefix /usr/local
 
 # Serverless
