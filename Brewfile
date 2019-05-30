@@ -570,12 +570,15 @@ cask 'airmail-beta'
 cask 'nvalt' # Post install steps in post-cask-install.sh
 cask 'numi'
 cask 'typora'
+cask 'mark-text'
+cask 'boostnote'
 
 # Casks: Photography
 cask 'darktable'
 # cask adobe-photoshop-lightroom
 cask 'digikam'
 # cask 'powerphotos' # Helps manage Apple Photos
+cask 'flume'
 
 # Casks: Design
 cask 'noun-project'
