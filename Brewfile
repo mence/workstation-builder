@@ -128,6 +128,7 @@ brew 'jid'
 brew 'jq' # parse JSON at command line
 brew 'pup' # parse HTML at command line
 brew 'xsv' # parse CSV at command line
+brew 'q' # interact with text as SQL
 brew 'json-table'
 brew 'consul',
      args: [
