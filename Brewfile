@@ -243,7 +243,7 @@ brew 'tree'
 brew 'watch'
 # brew 'watchman'
 brew 'the_silver_searcher' # ag: faster grep
-# brew 'ripgrep' # rg: fasterer grep
+brew 'ripgrep' # rg: fasterer grep
 brew 'fd'
 brew 'icdiff'
 brew 'diff-so-fancy'
