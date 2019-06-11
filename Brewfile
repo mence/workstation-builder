@@ -136,6 +136,8 @@ brew 'consul',
      ],
      restart_service: :changed
 brew 'borg'
+brew 'prettier'
+brew 'yamllint'
 
 # Homebrew: Web Servers
 brew 'nginx'
@@ -162,6 +164,8 @@ brew 'webkit2png'
 brew 'gor'
 tap 'loadimpact/k6'
 brew 'k6'
+brew 'hey'
+brew 'newman'
 
 # Homebrew: Databases
 brew 'mysql', restart_service: :changed # TODO: post-setup steps
@@ -228,7 +232,6 @@ brew 'libgtop'
 # brew 'memcache-top'
 # brew 'sqtop' # Display information about active connections for a Squid proxy
 brew 'pg_top'
-brew 'ncdu'
 
 # Homebrew: Cloud Services
 brew 'awscli'
@@ -271,6 +274,7 @@ brew 'progress' # previously known as cv
 brew 'noti' # trigger a macOS notification
 brew 'fasd' # fast directory listing / jumping
 brew 'wakatime-cli' # command line access to wakatime developer time tracking
+brew 'ncdu'
 
 # Homebrew: Monitoring
 # brew 'metricbeat'
@@ -495,7 +499,7 @@ tap 'datawire/blackbird'
 brew 'datawire/blackbird/telepresence'
 
 # Casks: Kubernetes and Terraform
-brew 'terraform'
+brew 'tfenv'
 brew 'kubectl'
 cask 'minikube' # https://github.com/kubernetes/minikube/releases
 brew 'kubernetes-helm'
@@ -506,6 +510,9 @@ brew 'kubectx'
 tap 'wata727/tflint'
 brew 'tflint'
 brew 'terraform_landscape'
+brew 'terraformer'
+brew 'terrahub'
+brew 'helmfile'
 
 # Casks: Git
 cask 'rowanj-gitx'

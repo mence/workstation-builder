@@ -3,6 +3,9 @@
 # Post Cask Install
 echo "Running post-Homebrew installation steps..."
 
+# Terraform
+tfenv install latest
+
 # echo "Remove Dropbox’s green checkmark icons in Finder"
 # file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
 # [ -e "${file}" ] && mv -f "${file}" "${file}.bak"

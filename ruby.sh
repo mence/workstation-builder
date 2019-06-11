@@ -106,8 +106,7 @@ rvm @global do gem install puppet
 
 # Utilities
 rvm @global do gem install video_transcoding # https://github.com/donmelton/video_transcoding
-# https://github.com/Chris911/iStats
-rvm @global do gem install iStats
+rvm @global do gem install iStats # https://github.com/Chris911/iStats
 istats scan
 istats enable all
 
@@ -119,3 +118,4 @@ rvm @global do gem install scss_lint
 rvm @global do gem install sqlint
 rvm @global do gem install foodcritic # http://www.foodcritic.io/
 rvm @global do gem install puppet-lint # http://puppet-lint.com/
+  

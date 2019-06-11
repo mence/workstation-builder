@@ -78,7 +78,6 @@ pip install docker-utils # https://github.com/andymckay/docker-utils
 pip install dpxdt # https://github.com/bslatkin/dpxdt
 
 # Linters (also used in SublimeLinter)
-pip3 install yamllint
 # pip3 install pep8
 pip install pycodestyle # https://github.com/SublimeLinter/SublimeLinter-pycodestyle
 
