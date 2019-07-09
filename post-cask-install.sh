@@ -69,6 +69,16 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 echo "Set up Terraform autocomplete"
 terraform -install-autocomplete
 
+# Zoom.us is evil https://medium.com/@jonathan.leitschuh/zoom-zero-day-4-million-webcams-maybe-an-rce-just-get-them-to-visit-your-website-ac75c83f4ef5
+
+echo "Checking for Zoom Backdoor and removing if it exists..."
+[ -z "$(lsof -ti :19421)" ] && echo "Zoom Backdoor Web Server is not Running" || sudo kill -9 $(lsof -ti :19421)
+echo "Removing Zoom Backdoor Server..."
+[ -f "~/.zoomus" ] && rf -rf ~/.zoomus
+touch .zoomus
+echo "Setting default for Zoom to turn off video when joining a meeting"
+sudo defaults write /Library/Preferences/us.zoom.config.plist ZDisableVideo 1
+
 # ---
 
 # macos dotfiles
